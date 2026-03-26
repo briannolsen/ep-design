@@ -77,9 +77,29 @@ document.querySelectorAll('.mob-link, .mob-wa').forEach(link => {
   link.addEventListener('click', () => {
     hamburger.classList.remove('open');
     mobileMenu.classList.remove('open');
+    mobileMenu.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    removeFocusTrap();
   });
 });
+
+/* ── Active mob-link based on scroll ── */
+const mobLinks = document.querySelectorAll('.mob-link');
+const sectionIds = [...mobLinks].map(l => l.getAttribute('href').replace('#', ''));
+
+function updateMobActive() {
+  const scrollY = window.scrollY + window.innerHeight / 3;
+  let currentId = sectionIds[0];
+  sectionIds.forEach(id => {
+    const sec = document.getElementById(id);
+    if (sec && sec.offsetTop <= scrollY) currentId = id;
+  });
+  mobLinks.forEach(l => {
+    l.classList.toggle('active', l.getAttribute('href') === `#${currentId}`);
+  });
+}
+window.addEventListener('scroll', updateMobActive, { passive: true });
+updateMobActive();
 
 /* ══════════════════════════════════════
    HERO — split + animate + reset
