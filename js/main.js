@@ -63,7 +63,15 @@ window.addEventListener('scroll', () => {
 hamburger?.addEventListener('click', () => {
   hamburger.classList.toggle('open');
   mobileMenu.classList.toggle('open');
-  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  const isOpen = mobileMenu.classList.contains('open');
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+  if (isOpen) {
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    trapFocusInMenu();
+  } else {
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    removeFocusTrap();
+  }
 });
 document.querySelectorAll('.mob-link, .mob-wa').forEach(link => {
   link.addEventListener('click', () => {
@@ -356,7 +364,7 @@ new IntersectionObserver((entries) => {
       const id = entry.target.getAttribute('id');
       navLinks.forEach(link => {
         link.style.color = link.getAttribute('href') === `#${id}`
-          ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.65)';
+          ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.78)';
       });
     }
   });
@@ -367,7 +375,7 @@ new IntersectionObserver((entries) => {
         const id = entry.target.getAttribute('id');
         navLinks.forEach(link => {
           link.style.color = link.getAttribute('href') === `#${id}`
-            ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.65)';
+            ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.78)';
         });
       }
     });
@@ -477,6 +485,67 @@ function setupMarquee() {
 }
 
 setupMarquee();
+
+/* ══════════════════════════════════════
+   FOCUS TRAP — Mobile Menu
+══════════════════════════════════════ */
+
+let focusTrapHandler = null;
+
+function trapFocusInMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const ham = document.getElementById('hamburger');
+  const focusable = [...menu.querySelectorAll('a, button'), ham];
+
+  focusTrapHandler = (e) => {
+    if (e.key !== 'Tab' || !focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (e.shiftKey) {
+      if (document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else {
+      if (document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  };
+
+  document.addEventListener('keydown', focusTrapHandler);
+
+  // Close on Escape
+  document.addEventListener('keydown', function escHandler(e) {
+    if (e.key === 'Escape') {
+      ham.classList.remove('open');
+      menu.classList.remove('open');
+      menu.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      ham.focus();
+      removeFocusTrap();
+      document.removeEventListener('keydown', escHandler);
+    }
+  });
+}
+
+function removeFocusTrap() {
+  if (focusTrapHandler) {
+    document.removeEventListener('keydown', focusTrapHandler);
+    focusTrapHandler = null;
+  }
+}
+
+/* ══════════════════════════════════════
+   REDUCED MOTION — disable GSAP anims
+══════════════════════════════════════ */
+
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  gsap.globalTimeline.timeScale(100);
+  ScrollTrigger.getAll().forEach(st => st.kill());
+}
 
 /* ── Parallax glows ── */
 window.addEventListener('scroll', () => {

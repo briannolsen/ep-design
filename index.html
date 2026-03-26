@@ -13,6 +13,9 @@
 </head>
 <body>
 
+  <!-- Skip to content -->
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+
   <!-- Loader -->
   <div class="loader" id="loader">
     <div class="loader-inner">
@@ -30,7 +33,7 @@
     <div class="nav-inner">
       <a href="#inicio" class="nav-logo">
         <img src="assets/logo-dark.PNG" alt="EP Design" class="logo-light-bg">
-        <img src="assets/logo-white.PNG" alt="EP Design" class="logo-dark-bg">
+        <img src="assets/logo-dark.PNG" alt="EP Design" class="logo-dark-bg">
       </a>
       <ul class="nav-links">
         <li><a href="#inicio">Inicio</a></li>
@@ -40,7 +43,7 @@
         <li><a href="#testimonios">Testimonios</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
-      <a href="https://wa.me/5491100000000" class="btn-wa nav-wa" target="_blank" rel="noopener">
+      <a href="https://wa.me/5491141709717?text=Hola%2C%20quiero%20info%20sobre%20sus%20servicios" class="btn-wa nav-wa" target="_blank" rel="noopener">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Hablar por WhatsApp
       </a>
@@ -51,7 +54,7 @@
   </nav>
 
   <!-- Mobile menu -->
-  <div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <ul>
       <li><a href="#inicio" class="mob-link">Inicio</a></li>
       <li><a href="#servicios" class="mob-link">Servicios</a></li>
@@ -60,13 +63,13 @@
       <li><a href="#testimonios" class="mob-link">Testimonios</a></li>
       <li><a href="#contacto" class="mob-link">Contacto</a></li>
     </ul>
-    <a href="https://wa.me/5491100000000" class="btn-wa mob-wa" target="_blank">Hablar por WhatsApp</a>
+    <a href="https://wa.me/5491141709717?text=Hola%2C%20quiero%20info%20sobre%20sus%20servicios" class="btn-wa mob-wa" target="_blank" rel="noopener">Hablar por WhatsApp</a>
   </div>
 
-  <main>
+  <main id="main-content">
 
     <!-- ═══ HERO ═══ -->
-    <section class="hero" id="inicio">
+    <section class="hero" id="inicio" aria-label="Inicio">
       <div class="hero-bg">
         <div class="grain"></div>
         <div class="hero-grid"></div>
@@ -132,7 +135,7 @@
     </section>
 
     <!-- ═══ PROBLEMA ═══ -->
-    <section class="sec problema" id="problema">
+    <section class="sec problema" id="problema" aria-label="El problema">
       <div class="container">
         <div class="sec-head reveal">
           <span class="tag">El problema</span>
@@ -169,7 +172,7 @@
     </section>
 
     <!-- ═══ SOLUCIÓN ═══ -->
-    <section class="sec solucion dark-sec" id="solucion">
+    <section class="sec solucion dark-sec" id="solucion" aria-label="Nuestra solución">
       <div class="container">
         <div class="sec-head reveal">
           <span class="tag tag-light">Nuestra solución</span>
@@ -214,7 +217,7 @@
     </section>
 
     <!-- ═══ SERVICIOS ═══ -->
-    <section class="sec servicios" id="servicios">
+    <section class="sec servicios" id="servicios" aria-label="Servicios">
       <div class="container">
         <div class="sec-head reveal">
           <span class="tag">Lo que hacemos</span>
@@ -265,7 +268,7 @@
     </section>
 
     <!-- ═══ RESULTADOS ═══ -->
-    <section class="sec resultados dark-sec" id="resultados">
+    <section class="sec resultados dark-sec" id="resultados" aria-label="Resultados">
       <div class="container">
         <div class="sec-head reveal">
           <span class="tag tag-light">Resultados reales</span>
@@ -319,7 +322,7 @@
     </section>
 
     <!-- ═══ CLIENTES ═══ -->
-    <section class="sec clientes" id="clientes">
+    <section class="sec clientes" id="clientes" aria-label="Clientes">
       <div class="container">
         <div class="sec-head reveal">
           <span class="tag">Nuestros clientes</span>
@@ -331,35 +334,45 @@
         <div class="marquee-track" id="marqueeTrack">
           <div class="marquee-item"><img src="assets/clients/15 COTIGNOLA.png" alt="Cotignola"></div>
           <div class="marquee-item"><img src="assets/clients/BASCERANO LOGÍSTICA .PNG" alt="Bascerano Logística"></div>
-          <div class="marquee-item"><img src="assets/clients/DONAIDE.SA - fondo oscuro.png" alt="Donaide"></div>
           <div class="marquee-item"><img src="assets/clients/ECO-GRAMA.PNG" alt="Eco-Grama"></div>
           <div class="marquee-item"><img src="assets/clients/FRANCESCO TUCCI NEGOCIOS INMOBILIARIOS.PNG" alt="Francesco Tucci"></div>
+          <div class="marquee-item"><img src="assets/clients/IMG_8361.PNG" alt="Cliente"></div>
           <div class="marquee-item"><img src="assets/clients/ISOLOGO FORMULA M (fondo transparente).png" alt="Formula M"></div>
           <div class="marquee-item"><img src="assets/clients/MANSOURsf.png" alt="Mansour"></div>
           <div class="marquee-item"><img src="assets/clients/MONTESNOT.png" alt="Montesnot"></div>
           <div class="marquee-item"><img src="assets/clients/OUR BLOOD.png" alt="Our Blood"></div>
           <div class="marquee-item"><img src="assets/clients/PALL-METAL.png" alt="Pall-Metal"></div>
-          <div class="marquee-item"><img src="assets/clients/SCUDETTO FRIGORÍFICO.jpg" alt="Scudetto Frigorífico"></div>
+          <div class="marquee-item"><img src="assets/clients/cliente-01.png" alt="Cliente"></div>
+          <div class="marquee-item"><img src="assets/clients/cliente-02.png" alt="Cliente"></div>
+          <div class="marquee-item"><img src="assets/clients/cliente-03.png" alt="Cliente"></div>
+          <div class="marquee-item"><img src="assets/clients/cliente-04.png" alt="Cliente"></div>
+          <div class="marquee-item"><img src="assets/clients/cliente-05.png" alt="Cliente"></div>
+          <div class="marquee-item"><img src="assets/clients/cliente-06.png" alt="Cliente"></div>
           <div class="marquee-item"><img src="assets/clients/TADDEOMAGLIANO.VENTAS .PNG" alt="Taddeo Magliano"></div>
           <!-- Duplicate for infinite scroll -->
           <div class="marquee-item"><img src="assets/clients/15 COTIGNOLA.png" alt="Cotignola"></div>
           <div class="marquee-item"><img src="assets/clients/BASCERANO LOGÍSTICA .PNG" alt="Bascerano Logística"></div>
-          <div class="marquee-item"><img src="assets/clients/DONAIDE.SA - fondo oscuro.png" alt="Donaide"></div>
           <div class="marquee-item"><img src="assets/clients/ECO-GRAMA.PNG" alt="Eco-Grama"></div>
           <div class="marquee-item"><img src="assets/clients/FRANCESCO TUCCI NEGOCIOS INMOBILIARIOS.PNG" alt="Francesco Tucci"></div>
+          <div class="marquee-item"><img src="assets/clients/IMG_8361.PNG" alt="Cliente"></div>
           <div class="marquee-item"><img src="assets/clients/ISOLOGO FORMULA M (fondo transparente).png" alt="Formula M"></div>
           <div class="marquee-item"><img src="assets/clients/MANSOURsf.png" alt="Mansour"></div>
           <div class="marquee-item"><img src="assets/clients/MONTESNOT.png" alt="Montesnot"></div>
           <div class="marquee-item"><img src="assets/clients/OUR BLOOD.png" alt="Our Blood"></div>
           <div class="marquee-item"><img src="assets/clients/PALL-METAL.png" alt="Pall-Metal"></div>
-          <div class="marquee-item"><img src="assets/clients/SCUDETTO FRIGORÍFICO.jpg" alt="Scudetto Frigorífico"></div>
+          <div class="marquee-item"><img src="assets/clients/cliente-01.png" alt="Cliente"></div>
+          <div class="marquee-item"><img src="assets/clients/cliente-02.png" alt="Cliente"></div>
+          <div class="marquee-item"><img src="assets/clients/cliente-03.png" alt="Cliente"></div>
+          <div class="marquee-item"><img src="assets/clients/cliente-04.png" alt="Cliente"></div>
+          <div class="marquee-item"><img src="assets/clients/cliente-05.png" alt="Cliente"></div>
+          <div class="marquee-item"><img src="assets/clients/cliente-06.png" alt="Cliente"></div>
           <div class="marquee-item"><img src="assets/clients/TADDEOMAGLIANO.VENTAS .PNG" alt="Taddeo Magliano"></div>
         </div>
       </div>
     </section>
 
     <!-- ═══ TESTIMONIOS ═══ -->
-    <section class="sec testimonios dark-sec" id="testimonios">
+    <section class="sec testimonios dark-sec" id="testimonios" aria-label="Testimonios">
       <div class="container">
         <div class="sec-head reveal">
           <span class="tag tag-light">Testimonios</span>
@@ -405,7 +418,7 @@
     </section>
 
     <!-- ═══ PORTFOLIO / COLABORACIONES ═══ -->
-    <section class="sec portfolio" id="portfolio">
+    <section class="sec portfolio" id="portfolio" aria-label="Portfolio">
       <div class="container">
         <div class="sec-head reveal">
           <span class="tag">Nuestro trabajo</span>
@@ -413,18 +426,18 @@
           <p>Una muestra del contenido real que creamos para nuestros clientes.</p>
         </div>
         <div class="portfolio-grid">
-          <div class="port-item reveal"><img src="assets/colabs/PHOTO-2025-08-04-11-29-58.jpg" alt="Trabajo EP Design" loading="lazy"></div>
-          <div class="port-item reveal"><img src="assets/colabs/PHOTO-2025-08-26-19-49-53.jpg" alt="Trabajo EP Design" loading="lazy"></div>
-          <div class="port-item reveal"><img src="assets/colabs/PHOTO-2025-09-08-11-37-09.jpg" alt="Trabajo EP Design" loading="lazy"></div>
-          <div class="port-item reveal"><img src="assets/colabs/trabajo-1.jpg" alt="Trabajo EP Design" loading="lazy"></div>
-          <div class="port-item reveal"><img src="assets/colabs/trabajo-2.png" alt="Trabajo EP Design" loading="lazy"></div>
-          <div class="port-item reveal"><img src="assets/colabs/trabajo-3.png" alt="Trabajo EP Design" loading="lazy"></div>
+          <div class="port-item reveal"><img src="assets/colabs/PHOTO-2025-08-04-11-29-58.jpg" alt="Diseño de contenido para redes sociales" loading="lazy"></div>
+          <div class="port-item reveal"><img src="assets/colabs/PHOTO-2025-08-26-19-49-53.jpg" alt="Campaña de branding para cliente" loading="lazy"></div>
+          <div class="port-item reveal"><img src="assets/colabs/PHOTO-2025-09-08-11-37-09.jpg" alt="Estrategia visual para Instagram" loading="lazy"></div>
+          <div class="port-item reveal"><img src="assets/colabs/trabajo-1.jpg" alt="Diseño de feed para marca" loading="lazy"></div>
+          <div class="port-item reveal"><img src="assets/colabs/trabajo-2.png" alt="Pieza gráfica publicitaria" loading="lazy"></div>
+          <div class="port-item reveal"><img src="assets/colabs/trabajo-3.png" alt="Contenido audiovisual para redes" loading="lazy"></div>
         </div>
       </div>
     </section>
 
     <!-- ═══ CTA FINAL ═══ -->
-    <section class="sec cta-final dark-sec" id="contacto">
+    <section class="sec cta-final dark-sec" id="contacto" aria-label="Contacto">
       <div class="cta-bg">
         <div class="grain"></div>
         <div class="cta-glow-c"></div>
@@ -437,7 +450,7 @@
           </div>
           <h2 class="cta-title">Si no vendés,<br><span class="grad-text">estás perdiendo plata.</span></h2>
           <p class="cta-sub">Nosotros te ayudamos a cambiar eso con una estrategia real.</p>
-          <a href="https://wa.me/5491100000000" class="btn-wa-large magnetic" target="_blank" rel="noopener">
+          <a href="https://wa.me/5491141709717?text=Hola%2C%20quiero%20info%20sobre%20sus%20servicios" class="btn-wa-large magnetic" target="_blank" rel="noopener">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Quiero empezar
           </a>
@@ -462,7 +475,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/logo-slogan-white.png" alt="EP Design">
+          <img src="assets/logo-dark.PNG" alt="EP Design">
           <p>Agencia especializada en crecimiento de redes sociales, generación de clientes y aumento de ventas para pymes y mayoristas.</p>
           <div class="footer-social">
             <a href="#" aria-label="Instagram" class="social-btn">
@@ -488,7 +501,7 @@
           <ul>
             <li>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              <a href="https://wa.me/5491100000000" target="_blank">WhatsApp</a>
+              <a href="https://wa.me/5491141709717?text=Hola%2C%20quiero%20info%20sobre%20sus%20servicios" target="_blank">WhatsApp</a>
             </li>
             <li>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
