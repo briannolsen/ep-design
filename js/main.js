@@ -507,6 +507,92 @@ function setupMarquee() {
 setupMarquee();
 
 /* ══════════════════════════════════════
+   TESTIMONIALS CAROUSEL
+══════════════════════════════════════ */
+(() => {
+  const track = document.getElementById('testiCarousel');
+  const prevBtn = document.getElementById('testiPrev');
+  const nextBtn = document.getElementById('testiNext');
+  if (!track || !prevBtn || !nextBtn) return;
+
+  const cards = track.querySelectorAll('.testi-card');
+  const total = cards.length;
+  const gap = 24;
+  let current = 0;
+
+  function getVisible() {
+    const w = window.innerWidth;
+    if (w <= 640) return 1;
+    if (w <= 1024) return 2;
+    return 3;
+  }
+
+  function sizeCards() {
+    const wrapW = track.parentElement.offsetWidth;
+    const visible = getVisible();
+    const cardW = (wrapW - gap * (visible - 1)) / visible;
+    cards.forEach(c => { c.style.width = cardW + 'px'; });
+  }
+
+  function slide() {
+    const visible = getVisible();
+    const maxIdx = Math.max(0, total - visible);
+    if (current < 0) current = 0;
+    if (current > maxIdx) current = maxIdx;
+
+    const cardW = cards[0].offsetWidth;
+    const offset = current * (cardW + gap);
+    track.style.transform = `translateX(-${offset}px)`;
+
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current >= maxIdx;
+  }
+
+  function refresh() { sizeCards(); slide(); }
+
+  prevBtn.addEventListener('click', () => { current--; slide(); });
+  nextBtn.addEventListener('click', () => { current++; slide(); });
+
+  // Swipe
+  let startX = 0;
+  track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', (e) => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (diff > 50) { current++; slide(); }
+    else if (diff < -50) { current--; slide(); }
+  }, { passive: true });
+
+  window.addEventListener('resize', refresh, { passive: true });
+  refresh();
+})();
+
+/* ══════════════════════════════════════
+   PORTFOLIO TABS — Filter by category
+══════════════════════════════════════ */
+document.querySelectorAll('.port-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.port-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+
+    const filter = tab.dataset.filter;
+    document.querySelectorAll('.port-item').forEach(item => {
+      if (filter === 'all' || item.dataset.cat === filter) {
+        item.style.display = '';
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        requestAnimationFrame(() => {
+          item.style.transition = 'opacity 0.4s, transform 0.4s';
+          item.style.opacity = '1';
+          item.style.transform = 'none';
+        });
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+});
+
+/* ══════════════════════════════════════
    FOCUS TRAP — Mobile Menu
 ══════════════════════════════════════ */
 
@@ -566,6 +652,58 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   gsap.globalTimeline.timeScale(100);
   ScrollTrigger.getAll().forEach(st => st.kill());
 }
+
+/* ══════════════════════════════════════
+   FIX iOS/iPad — animation bug on tab switch
+   Forces full re-sync of GSAP + ScrollTrigger
+   when returning from background or bfcache
+══════════════════════════════════════ */
+(function() {
+  let wasHidden = false;
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') {
+      wasHidden = true;
+      return;
+    }
+    if (!wasHidden) return;
+    wasHidden = false;
+
+    // Force GSAP ticker back to life
+    gsap.ticker.wake();
+
+    // Kill frozen inline styles on all animated elements and let ScrollTrigger recalculate
+    gsap.utils.toArray('.sec-head, .step, .pain-card, .srv-card, .result-card, .testi-card, .port-item, .blog-card, .cta-wrap, .tool-item').forEach(el => {
+      gsap.killTweensOf(el);
+    });
+
+    // Small delay lets layout settle before full refresh
+    requestAnimationFrame(() => {
+      ScrollTrigger.getAll().forEach(st => {
+        st.refresh();
+        // Force re-evaluation of current scroll position
+        st.update();
+      });
+      ScrollTrigger.refresh(true);
+    });
+  });
+
+  // Fix iOS Safari bfcache (back-forward cache)
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted) {
+      gsap.ticker.wake();
+      requestAnimationFrame(() => {
+        ScrollTrigger.getAll().forEach(st => { st.refresh(); st.update(); });
+        ScrollTrigger.refresh(true);
+      });
+    }
+  });
+
+  // iOS Safari sometimes freezes RAF on focus — force restart
+  window.addEventListener('focus', () => {
+    gsap.ticker.wake();
+  });
+})();
 
 /* ── Parallax glows ── */
 window.addEventListener('scroll', () => {
