@@ -217,7 +217,8 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.14, rootMargin: '0px 0px -60px 0px' });
 
 document.querySelectorAll('.reveal').forEach((el, i) => {
-  const siblings = Array.from(el.parentElement.querySelectorAll('.reveal'));
+  // Only count direct sibling .reveal elements to avoid deep nesting accumulating delay
+  const siblings = Array.from(el.parentElement.children).filter(c => c.classList.contains('reveal'));
   el.style.transitionDelay = (siblings.indexOf(el) * 0.1) + 's';
   revealObserver.observe(el);
 });
