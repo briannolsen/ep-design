@@ -1390,7 +1390,29 @@ button { cursor: pointer; border: none; background: none; }
   .srv-grid     { grid-template-columns: 1fr; }
   .results-grid { grid-template-columns: 1fr; }
   /* testi-card width set by JS */
-  .testi-videos { grid-template-columns: repeat(2, 1fr); }
+
+  /* Videos: horizontal scroll tipo stories */
+  .testi-videos {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 0.85rem;
+    padding-bottom: 0.5rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    /* hide scrollbar */
+    scrollbar-width: none;
+  }
+  .testi-videos::-webkit-scrollbar { display: none; }
+  .testi-video-card {
+    flex: 0 0 auto;
+    width: 150px;
+    scroll-snap-align: start;
+  }
+  .testi-video-placeholder {
+    max-height: none;
+    aspect-ratio: 9/16;
+  }
   .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
 
   /* Steps */
