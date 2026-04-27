@@ -44,6 +44,36 @@ document.querySelectorAll('a, button, .srv-card, .pain-card, .testi-card, .blog-
   el.addEventListener('mouseleave', () => cursor?.classList.remove('hover'));
 });
 
+/* ══════════════════════════════════════
+   THEME TOGGLE — Dark / Light mode
+══════════════════════════════════════ */
+(function() {
+  const toggle = document.getElementById('themeToggle');
+  if (!toggle) return;
+
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    try { localStorage.setItem('ep-theme', theme); } catch (e) {}
+    toggle.setAttribute('aria-label', theme === 'dark' ? 'Cambiar a modo día' : 'Cambiar a modo oscuro');
+  }
+
+  toggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') || 'light';
+    setTheme(current === 'dark' ? 'light' : 'dark');
+  });
+
+  // Sync with system changes if user hasn't manually chosen
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('ep-theme')) {
+      setTheme(e.matches ? 'dark' : 'light');
+    }
+  });
+
+  // Set correct aria-label on init
+  const init = document.documentElement.getAttribute('data-theme') || 'light';
+  toggle.setAttribute('aria-label', init === 'dark' ? 'Cambiar a modo día' : 'Cambiar a modo oscuro');
+})();
+
 /* ── Navbar ── */
 const navbar = document.getElementById('navbar');
 const hamburger = document.getElementById('hamburger');
