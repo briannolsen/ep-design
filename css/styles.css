@@ -169,6 +169,8 @@ button { cursor: pointer; border: none; background: none; }
   transition: color 0.2s, background 0.2s;
 }
 .nav-links a:hover { color: var(--blue-light); background: rgba(93, 169, 255, 0.08); }
+.nav-links a.active { color: var(--white); }
+[data-theme="light"] .nav-links a.active { color: var(--dark); }
 
 /* ── Theme Toggle Button ── */
 .theme-toggle {

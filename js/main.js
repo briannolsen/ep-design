@@ -422,32 +422,19 @@ document.querySelectorAll('.magnetic').forEach(el => {
   });
 });
 
-/* ── Active nav link ── */
+/* ── Active nav link (theme-safe: usa clase, no inline style) ── */
 const navLinks = document.querySelectorAll('.nav-links a');
-new IntersectionObserver((entries) => {
+const navObs = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const id = entry.target.getAttribute('id');
       navLinks.forEach(link => {
-        link.style.color = link.getAttribute('href') === `#${id}`
-          ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.78)';
+        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
       });
     }
   });
-}, { rootMargin: '-50% 0px -50% 0px' }).observe = (() => {
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        navLinks.forEach(link => {
-          link.style.color = link.getAttribute('href') === `#${id}`
-            ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.78)';
-        });
-      }
-    });
-  }, { rootMargin: '-50% 0px -50% 0px' });
-  document.querySelectorAll('section[id]').forEach(s => obs.observe(s));
-})();
+}, { rootMargin: '-50% 0px -50% 0px' });
+document.querySelectorAll('section[id]').forEach(s => navObs.observe(s));
 
 /* ── Smooth scroll ── */
 document.querySelectorAll('a[href^="#"]').forEach(link => {
