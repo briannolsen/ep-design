@@ -51,25 +51,40 @@ document.querySelectorAll('a, button, .srv-card, .pain-card, .testi-card, .blog-
   const toggle = document.getElementById('themeToggle');
   if (!toggle) return;
 
-  function setTheme(theme) {
+  function setTheme(theme, animate) {
     document.documentElement.setAttribute('data-theme', theme);
     try { localStorage.setItem('ep-theme', theme); } catch (e) {}
     toggle.setAttribute('aria-label', theme === 'dark' ? 'Cambiar a modo día' : 'Cambiar a modo oscuro');
+
+    if (animate) {
+      // Spin button
+      toggle.classList.remove('spinning');
+      // Force reflow so animation restarts cleanly
+      void toggle.offsetWidth;
+      toggle.classList.add('spinning');
+      setTimeout(() => toggle.classList.remove('spinning'), 600);
+
+      // Page flash overlay (subtle blue tint on transition)
+      const flash = document.createElement('div');
+      flash.className = 'theme-flash';
+      document.body.appendChild(flash);
+      setTimeout(() => flash.remove(), 600);
+    }
   }
 
   toggle.addEventListener('click', () => {
     const current = document.documentElement.getAttribute('data-theme') || 'light';
-    setTheme(current === 'dark' ? 'light' : 'dark');
+    setTheme(current === 'dark' ? 'light' : 'dark', true);
   });
 
   // Sync with system changes if user hasn't manually chosen
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    if (!localStorage.getItem('ep-theme')) {
-      setTheme(e.matches ? 'dark' : 'light');
-    }
+    let saved = null;
+    try { saved = localStorage.getItem('ep-theme'); } catch (err) {}
+    if (!saved) setTheme(e.matches ? 'dark' : 'light', false);
   });
 
-  // Set correct aria-label on init
+  // Set correct aria-label on init (theme already applied by inline script in <head>)
   const init = document.documentElement.getAttribute('data-theme') || 'light';
   toggle.setAttribute('aria-label', init === 'dark' ? 'Cambiar a modo día' : 'Cambiar a modo oscuro');
 })();

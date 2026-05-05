@@ -13,11 +13,16 @@
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     // Theme init (anti-flash) — applied before CSS paints
     (function() {
+      var theme = 'light';
       try {
         var saved = localStorage.getItem('ep-theme');
-        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', theme);
+        if (saved === 'dark' || saved === 'light') {
+          theme = saved;
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          theme = 'dark';
+        }
       } catch (e) {}
+      document.documentElement.setAttribute('data-theme', theme);
     })();
   </script>
 </head>
@@ -425,6 +430,26 @@
             <span>Clientes renuevan</span>
           </div>
         </div>
+
+        <!-- Growth videos -->
+        <div class="growth-videos reveal" aria-label="Métricas de crecimiento">
+          <h3 class="growth-videos-title">Crecimiento real, datos reales</h3>
+          <p class="growth-videos-sub">Estos son algunos de los gráficos que reflejan el crecimiento de nuestros clientes.</p>
+          <div class="growth-videos-grid">
+            <figure class="growth-video">
+              <video src="assets/videos/fr.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Crecimiento de seguidores"></video>
+              <figcaption>Crecimiento de seguidores</figcaption>
+            </figure>
+            <figure class="growth-video">
+              <video src="assets/videos/diagram.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Evolución de métricas"></video>
+              <figcaption>Evolución de métricas</figcaption>
+            </figure>
+            <figure class="growth-video">
+              <video src="assets/videos/barra.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Comparativa de resultados"></video>
+              <figcaption>Comparativa de resultados</figcaption>
+            </figure>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -461,6 +486,7 @@
           <div class="marquee-item"><img src="assets/clients/cliente-10.png" alt="Cliente"></div>
           <div class="marquee-item"><img src="assets/clients/cliente-11.png" alt="Cliente"></div>
           <div class="marquee-item"><img src="assets/clients/cliente-12.png" alt="Cliente"></div>
+          <div class="marquee-item"><img src="assets/clients/GRUPO-ALBANI.png" alt="Grupo Albani"></div>
           <div class="marquee-item"><img src="assets/clients/TADDEOMAGLIANO.VENTAS .PNG" alt="Taddeo Magliano"></div>
           <!-- Duplicate for infinite scroll -->
           <div class="marquee-item"><img src="assets/clients/15 COTIGNOLA.png" alt="Cotignola"></div>
@@ -485,6 +511,7 @@
           <div class="marquee-item"><img src="assets/clients/cliente-10.png" alt="Cliente"></div>
           <div class="marquee-item"><img src="assets/clients/cliente-11.png" alt="Cliente"></div>
           <div class="marquee-item"><img src="assets/clients/cliente-12.png" alt="Cliente"></div>
+          <div class="marquee-item"><img src="assets/clients/GRUPO-ALBANI.png" alt="Grupo Albani"></div>
           <div class="marquee-item"><img src="assets/clients/TADDEOMAGLIANO.VENTAS .PNG" alt="Taddeo Magliano"></div>
         </div>
       </div>
