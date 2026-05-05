@@ -11,16 +11,12 @@
   <link rel="stylesheet" href="css/styles.css">
   <script>
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-    // Theme init (anti-flash) — applied before CSS paints
+    // Theme init (anti-flash) — default = dark (original page look)
     (function() {
-      var theme = 'light';
+      var theme = 'dark';
       try {
         var saved = localStorage.getItem('ep-theme');
-        if (saved === 'dark' || saved === 'light') {
-          theme = saved;
-        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          theme = 'dark';
-        }
+        if (saved === 'dark' || saved === 'light') theme = saved;
       } catch (e) {}
       document.documentElement.setAttribute('data-theme', theme);
     })();
@@ -34,7 +30,8 @@
   <!-- Loader -->
   <div class="loader" id="loader">
     <div class="loader-inner">
-      <img src="assets/logo-dark.PNG" alt="EP Design" class="loader-logo">
+      <img src="assets/logo-dark.PNG" alt="EP Design" class="loader-logo loader-logo-dark">
+      <img src="assets/logo-white.PNG" alt="EP Design" class="loader-logo loader-logo-light">
       <div class="loader-bar"><div class="loader-fill"></div></div>
     </div>
   </div>
@@ -47,7 +44,7 @@
   <nav class="navbar" id="navbar">
     <div class="nav-inner">
       <a href="#inicio" class="nav-logo">
-        <img src="assets/logo-dark.PNG" alt="EP Design" class="logo-light-bg">
+        <img src="assets/logo-white.PNG" alt="EP Design" class="logo-light-bg">
         <img src="assets/logo-dark.PNG" alt="EP Design" class="logo-dark-bg">
       </a>
       <ul class="nav-links">
@@ -433,20 +430,56 @@
 
         <!-- Growth videos -->
         <div class="growth-videos reveal" aria-label="Métricas de crecimiento">
-          <h3 class="growth-videos-title">Crecimiento real, datos reales</h3>
-          <p class="growth-videos-sub">Estos son algunos de los gráficos que reflejan el crecimiento de nuestros clientes.</p>
+          <div class="growth-head">
+            <span class="tag tag-light">Métricas reales</span>
+            <h3 class="growth-videos-title light">El crecimiento, en <span class="grad-text">gráficos</span></h3>
+            <p class="growth-videos-sub light">Datos reales de cuentas que pasaron de no generar consultas a recibir mensajes todos los días.</p>
+          </div>
           <div class="growth-videos-grid">
             <figure class="growth-video">
-              <video src="assets/videos/fr.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Crecimiento de seguidores"></video>
-              <figcaption>Crecimiento de seguidores</figcaption>
+              <div class="growth-video-wrap">
+                <video src="assets/videos/fr.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Crecimiento de seguidores"></video>
+                <span class="growth-live-badge"><span class="pulse-dot"></span>Live</span>
+              </div>
+              <figcaption>
+                <span class="growth-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </span>
+                <div class="growth-text">
+                  <strong>Crecimiento de seguidores</strong>
+                  <span>Evolución orgánica</span>
+                </div>
+              </figcaption>
             </figure>
             <figure class="growth-video">
-              <video src="assets/videos/diagram.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Evolución de métricas"></video>
-              <figcaption>Evolución de métricas</figcaption>
+              <div class="growth-video-wrap">
+                <video src="assets/videos/diagram.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Evolución de métricas"></video>
+                <span class="growth-live-badge"><span class="pulse-dot"></span>Live</span>
+              </div>
+              <figcaption>
+                <span class="growth-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
+                </span>
+                <div class="growth-text">
+                  <strong>Evolución de métricas</strong>
+                  <span>Vista por períodos</span>
+                </div>
+              </figcaption>
             </figure>
             <figure class="growth-video">
-              <video src="assets/videos/barra.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Comparativa de resultados"></video>
-              <figcaption>Comparativa de resultados</figcaption>
+              <div class="growth-video-wrap">
+                <video src="assets/videos/barra.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Comparativa de resultados"></video>
+                <span class="growth-live-badge"><span class="pulse-dot"></span>Live</span>
+              </div>
+              <figcaption>
+                <span class="growth-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </span>
+                <div class="growth-text">
+                  <strong>Comparativa de resultados</strong>
+                  <span>Antes vs después</span>
+                </div>
+              </figcaption>
             </figure>
           </div>
         </div>
@@ -750,7 +783,8 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/logo-dark.PNG" alt="EP Design">
+          <img src="assets/logo-dark.PNG" alt="EP Design" class="footer-logo footer-logo-dark">
+          <img src="assets/logo-white.PNG" alt="EP Design" class="footer-logo footer-logo-light">
           <p>Soluciones digitales integrales para empresas. Redes sociales, páginas web, diseño gráfico, cobertura de eventos y más.</p>
           <div class="footer-social">
             <a href="https://www.instagram.com/epdesign___/" target="_blank" rel="noopener" aria-label="Instagram" class="social-btn">
