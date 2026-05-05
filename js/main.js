@@ -10,6 +10,13 @@ window.addEventListener('load', () => window.scrollTo(0, 0));
 
 gsap.registerPlugin(ScrollTrigger);
 
+/* ══════════════════════════════════════
+   DEVICE DETECTION — touch (mobile/tablet)
+   En touch las animaciones se ejecutan UNA SOLA VEZ
+   (patron de Apple, Stripe, Linear, Vercel)
+══════════════════════════════════════ */
+const IS_TOUCH = window.matchMedia('(pointer: coarse)').matches || window.matchMedia('(hover: none)').matches;
+
 /* ── Loader ── */
 window.addEventListener('load', () => {
   const loader = document.getElementById('loader');
@@ -235,27 +242,31 @@ function animateHeroStats() {
   });
 }
 
-/* Re-trigger hero when scrolling back to top */
-ScrollTrigger.create({
-  trigger: '.hero',
-  start: 'top 2%',    // fires when hero's top is nearly at the top of viewport
-  onEnterBack: () => {
-    // Small delay so scroll settles before animating
-    setTimeout(runHeroAnimation, 150);
-  }
-});
+/* Re-trigger hero when scrolling back to top — solo desktop */
+if (!IS_TOUCH) {
+  ScrollTrigger.create({
+    trigger: '.hero',
+    start: 'top 2%',    // fires when hero's top is nearly at the top of viewport
+    onEnterBack: () => {
+      // Small delay so scroll settles before animating
+      setTimeout(runHeroAnimation, 150);
+    }
+  });
+}
 
 /* ══════════════════════════════════════
    SCROLL REVEAL — bidirectional
    Elements replay every time they enter
 ══════════════════════════════════════ */
 
-const revealObserver = new IntersectionObserver((entries) => {
+const revealObserver = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-    } else {
-      // Reset so animation replays on next entry
+      // En touch: una sola vez, desuscribir y conservar el estado final
+      if (IS_TOUCH) obs.unobserve(entry.target);
+    } else if (!IS_TOUCH) {
+      // Solo en desktop: replay al volver a entrar
       entry.target.classList.remove('visible');
     }
   });
@@ -292,10 +303,12 @@ function animateCounters(container) {
   });
 }
 
-const counterObserver = new IntersectionObserver((entries) => {
+const counterObserver = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       animateCounters(entry.target);
+      // En touch: animar una vez y desuscribir
+      if (IS_TOUCH) obs.unobserve(entry.target);
     }
   });
 }, { threshold: 0.3 });
@@ -308,7 +321,10 @@ document.querySelectorAll('.counters').forEach(el => counterObserver.observe(el)
    → plays on enter, resets on scroll back up
 ══════════════════════════════════════ */
 
-const TRIG = { toggleActions: 'play none none reset' };
+// En desktop: play al entrar, reset al volver. En touch: play una sola vez.
+const TRIG = IS_TOUCH
+  ? { toggleActions: 'play none none none', once: true }
+  : { toggleActions: 'play none none reset' };
 
 // Section headers
 gsap.utils.toArray('.sec-head').forEach(el => {
@@ -401,9 +417,15 @@ document.querySelectorAll('.strike-wrap').forEach(el => {
     gsap.set(bar, { scaleX: 0 });
   }
 
-  new IntersectionObserver((entries) => {
+  new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
-      entry.isIntersecting ? drawStrike() : resetStrike();
+      if (entry.isIntersecting) {
+        drawStrike();
+        // En touch: queda tachado para siempre
+        if (IS_TOUCH) obs.unobserve(entry.target);
+      } else if (!IS_TOUCH) {
+        resetStrike();
+      }
     });
   }, { threshold: 0.6 }).observe(el);
 });
