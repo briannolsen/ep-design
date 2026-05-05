@@ -687,54 +687,82 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 }
 
 /* ══════════════════════════════════════
-   FIX iOS/iPad — animation bug on tab switch
-   Forces full re-sync of GSAP + ScrollTrigger
-   when returning from background or bfcache
+   FIX iOS/iPad — animation bug on tab/app switch
+   Cuando el usuario sale de la app/safari y vuelve,
+   GSAP queda dormido y los IntersectionObservers
+   no re-evaluan. Esto fuerza un refresh completo.
 ══════════════════════════════════════ */
 (function() {
   let wasHidden = false;
+  let refreshing = false;
+
+  function refreshAllAnimations() {
+    if (refreshing) return;
+    refreshing = true;
+
+    // 1. Despertar el ticker de GSAP (se pausa con la pestaña oculta)
+    if (typeof gsap !== 'undefined') {
+      gsap.ticker.wake();
+      // Resetear lag smoothing al estado normal
+      gsap.ticker.lagSmoothing(500, 33);
+    }
+
+    // 2. Re-evaluar manualmente los elementos .reveal segun viewport actual
+    //    (los IntersectionObservers no siempre re-disparan al volver)
+    const vh = window.innerHeight;
+    document.querySelectorAll('.reveal').forEach(el => {
+      const r = el.getBoundingClientRect();
+      const inView = r.top < vh - 60 && r.bottom > 60;
+      el.classList.toggle('visible', inView);
+    });
+
+    // 3. Refrescar todos los ScrollTrigger y forzar re-evaluacion
+    requestAnimationFrame(() => {
+      if (typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.refresh(true);
+        ScrollTrigger.update();
+      }
+      // Disparar scroll event para que cualquier listener dormido se despierte
+      window.dispatchEvent(new Event('scroll'));
+
+      // 4. Reanudar videos pausados que esten en viewport
+      document.querySelectorAll('video[autoplay]').forEach(v => {
+        const r = v.getBoundingClientRect();
+        const inView = r.top < vh && r.bottom > 0;
+        if (inView && v.paused) {
+          v.play().catch(() => {});
+        }
+      });
+
+      refreshing = false;
+    });
+  }
 
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') {
       wasHidden = true;
       return;
     }
-    if (!wasHidden) return;
-    wasHidden = false;
-
-    // Force GSAP ticker back to life
-    gsap.ticker.wake();
-
-    // Kill frozen inline styles on all animated elements and let ScrollTrigger recalculate
-    gsap.utils.toArray('.sec-head, .step, .pain-card, .srv-card, .result-card, .testi-card, .port-item, .blog-card, .cta-wrap, .tool-item').forEach(el => {
-      gsap.killTweensOf(el);
-    });
-
-    // Small delay lets layout settle before full refresh
-    requestAnimationFrame(() => {
-      ScrollTrigger.getAll().forEach(st => {
-        st.refresh();
-        // Force re-evaluation of current scroll position
-        st.update();
-      });
-      ScrollTrigger.refresh(true);
-    });
-  });
-
-  // Fix iOS Safari bfcache (back-forward cache)
-  window.addEventListener('pageshow', (e) => {
-    if (e.persisted) {
-      gsap.ticker.wake();
-      requestAnimationFrame(() => {
-        ScrollTrigger.getAll().forEach(st => { st.refresh(); st.update(); });
-        ScrollTrigger.refresh(true);
-      });
+    if (wasHidden) {
+      wasHidden = false;
+      // Pequeno delay para que iOS termine de restaurar el contexto
+      setTimeout(refreshAllAnimations, 50);
     }
   });
 
-  // iOS Safari sometimes freezes RAF on focus — force restart
+  // bfcache (back-forward cache de iOS Safari)
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted) refreshAllAnimations();
+  });
+
+  // Foco recuperado
   window.addEventListener('focus', () => {
-    gsap.ticker.wake();
+    setTimeout(refreshAllAnimations, 50);
+  });
+
+  // iPad: cuando se rota o cambia el size del viewport tambien refrescar
+  window.addEventListener('orientationchange', () => {
+    setTimeout(refreshAllAnimations, 200);
   });
 })();
 
