@@ -982,7 +982,12 @@ button { cursor: pointer; border: none; background: none; }
 .growth-videos-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.75rem;
+  gap: 1.5rem;
+  /* Break out of parent .container to give videos more room */
+  width: min(1500px, calc(100vw - 3rem));
+  margin-left: 50%;
+  transform: translateX(-50%);
+  position: relative;
 }
 .growth-video {
   position: relative;
@@ -1002,7 +1007,7 @@ button { cursor: pointer; border: none; background: none; }
 .growth-video-wrap {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 16/10;
+  aspect-ratio: 16/9;        /* native 1920x1080 — no rescaling */
   background: #050505;
 }
 .growth-video video {
@@ -1010,35 +1015,13 @@ button { cursor: pointer; border: none; background: none; }
   height: 100%;
   display: block;
   object-fit: cover;
+  /* High-quality rendering hints */
+  image-rendering: -webkit-optimize-contrast;
+  transform: translateZ(0);
+  backface-visibility: hidden;
   transition: transform 0.6s var(--ease-out);
 }
-.growth-video:hover video { transform: scale(1.03); }
-
-.growth-live-badge {
-  position: absolute;
-  top: 0.85rem;
-  right: 0.85rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.3rem 0.7rem 0.3rem 0.55rem;
-  background: rgba(8, 8, 8, 0.78);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 50px;
-  font-family: var(--font-body);
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--white);
-}
-.growth-live-badge .pulse-dot {
-  width: 6px;
-  height: 6px;
-  background: #25D366;
-  box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-}
+.growth-video:hover video { transform: scale(1.03) translateZ(0); }
 
 .growth-video figcaption {
   display: flex;
@@ -1111,11 +1094,6 @@ button { cursor: pointer; border: none; background: none; }
 }
 [data-theme="light"] .growth-text strong { color: var(--dark); }
 [data-theme="light"] .growth-text span { color: rgba(0,0,0,0.55); }
-[data-theme="light"] .growth-live-badge {
-  background: rgba(255,255,255,0.85);
-  color: var(--dark);
-  border: 1px solid rgba(0,0,0,0.08);
-}
 
 /* ── CLIENTES ── */
 .clientes { background: #F8F8F8; overflow: hidden; }
