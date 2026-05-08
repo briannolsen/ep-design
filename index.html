@@ -440,30 +440,33 @@
             <!-- Chart 1: Line chart -->
             <figure class="growth-video chart-card">
               <div class="growth-chart-wrap">
-                <span class="chart-stat">
+                <header class="chart-header">
                   <span class="chart-stat-num" data-target="5400" data-pre="+">0</span>
                   <span class="chart-stat-arrow">↑</span>
-                </span>
-                <svg class="chart" viewBox="0 0 400 200" preserveAspectRatio="none" aria-hidden="true">
-                  <defs>
-                    <linearGradient id="lineFill1" x1="0" x2="0" y1="0" y2="1">
-                      <stop offset="0%" stop-color="#1155FF" stop-opacity="0.45"/>
-                      <stop offset="100%" stop-color="#1155FF" stop-opacity="0"/>
-                    </linearGradient>
-                  </defs>
-                  <g class="chart-grid">
-                    <line x1="0" y1="50" x2="400" y2="50"/>
-                    <line x1="0" y1="100" x2="400" y2="100"/>
-                    <line x1="0" y1="150" x2="400" y2="150"/>
-                  </g>
-                  <path class="chart-area" d="M0,170 L60,160 L110,140 L160,115 L210,90 L260,65 L310,45 L360,28 L400,20 L400,200 L0,200 Z" fill="url(#lineFill1)"/>
-                  <path class="chart-stroke" d="M0,170 L60,160 L110,140 L160,115 L210,90 L260,65 L310,45 L360,28 L400,20" stroke="#1155FF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                  <circle class="chart-dot-pulse" cx="395" cy="20" r="6" fill="#5DA9FF"/>
-                  <circle class="chart-dot" cx="395" cy="20" r="5" fill="#1155FF" stroke="#fff" stroke-width="2"/>
-                </svg>
-                <div class="chart-axis">
-                  <span>Ene</span><span>Mar</span><span>May</span><span>Jul</span>
+                  <span class="chart-stat-label">seguidores</span>
+                </header>
+                <div class="chart-body">
+                  <svg class="chart" viewBox="0 0 400 200" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="lineFill1" x1="0" x2="0" y1="0" y2="1">
+                        <stop offset="0%" stop-color="#1155FF" stop-opacity="0.45"/>
+                        <stop offset="100%" stop-color="#1155FF" stop-opacity="0"/>
+                      </linearGradient>
+                    </defs>
+                    <g class="chart-grid">
+                      <line x1="0" y1="50" x2="400" y2="50"/>
+                      <line x1="0" y1="100" x2="400" y2="100"/>
+                      <line x1="0" y1="150" x2="400" y2="150"/>
+                    </g>
+                    <path class="chart-area" d="M0,170 L60,160 L110,140 L160,115 L210,90 L260,65 L310,45 L360,28 L390,20 L400,18 L400,200 L0,200 Z" fill="url(#lineFill1)"/>
+                    <path class="chart-stroke" d="M0,170 L60,160 L110,140 L160,115 L210,90 L260,65 L310,45 L360,28 L390,20" stroke="#1155FF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle class="chart-dot-pulse" cx="390" cy="20" r="6" fill="#5DA9FF"/>
+                    <circle class="chart-dot" cx="390" cy="20" r="5" fill="#1155FF" stroke="#fff" stroke-width="2"/>
+                  </svg>
                 </div>
+                <footer class="chart-axis">
+                  <span>Ene</span><span>Mar</span><span>May</span><span>Jul</span>
+                </footer>
               </div>
               <figcaption>
                 <span class="growth-icon">
@@ -479,29 +482,32 @@
             <!-- Chart 2: Donut chart -->
             <figure class="growth-video chart-card">
               <div class="growth-chart-wrap chart-donut-wrap">
-                <span class="chart-stat">
+                <header class="chart-header">
                   <span class="chart-stat-num" data-target="2500000" data-format="M">0</span>
                   <span class="chart-stat-arrow">↑</span>
-                </span>
-                <svg class="chart chart-donut" viewBox="0 0 200 200" aria-hidden="true">
-                  <g transform="translate(100, 100)">
-                    <circle class="donut-track" r="68" fill="none" stroke-width="20"/>
-                    <circle class="donut-seg donut-seg-1" r="68" fill="none" stroke="#1155FF"  stroke-width="20" pathLength="100" transform="rotate(-90)"/>
-                    <circle class="donut-seg donut-seg-2" r="68" fill="none" stroke="#5DA9FF"  stroke-width="20" pathLength="100" transform="rotate(-90)"/>
-                    <circle class="donut-seg donut-seg-3" r="68" fill="none" stroke="#88AAFF"  stroke-width="20" pathLength="100" transform="rotate(-90)"/>
-                    <circle class="donut-seg donut-seg-4" r="68" fill="none" stroke="#3377FF"  stroke-width="20" pathLength="100" transform="rotate(-90)"/>
-                  </g>
-                </svg>
-                <div class="donut-center">
-                  <strong>Alcance</strong>
-                  <span>distribución</span>
+                  <span class="chart-stat-label">alcance</span>
+                </header>
+                <div class="chart-body chart-body-donut">
+                  <svg class="chart chart-donut" viewBox="0 0 200 200" aria-hidden="true">
+                    <g transform="translate(100, 100)">
+                      <circle class="donut-track" r="68" fill="none" stroke-width="20"/>
+                      <circle class="donut-seg donut-seg-1" r="68" fill="none" stroke="#1155FF"  stroke-width="20" pathLength="100" transform="rotate(-90)"/>
+                      <circle class="donut-seg donut-seg-2" r="68" fill="none" stroke="#5DA9FF"  stroke-width="20" pathLength="100" transform="rotate(-90)"/>
+                      <circle class="donut-seg donut-seg-3" r="68" fill="none" stroke="#88AAFF"  stroke-width="20" pathLength="100" transform="rotate(-90)"/>
+                      <circle class="donut-seg donut-seg-4" r="68" fill="none" stroke="#3377FF"  stroke-width="20" pathLength="100" transform="rotate(-90)"/>
+                    </g>
+                  </svg>
+                  <div class="donut-center">
+                    <strong>4 tipos</strong>
+                    <span>de contenido</span>
+                  </div>
                 </div>
-                <div class="chart-legend chart-legend-grid">
+                <footer class="chart-legend chart-legend-grid">
                   <span><span class="legend-dot" style="background:#1155FF"></span>Reels 45%</span>
                   <span><span class="legend-dot" style="background:#5DA9FF"></span>Stories 28%</span>
                   <span><span class="legend-dot" style="background:#88AAFF"></span>Posts 18%</span>
                   <span><span class="legend-dot" style="background:#3377FF"></span>Lives 9%</span>
-                </div>
+                </footer>
               </div>
               <figcaption>
                 <span class="growth-icon">
@@ -517,38 +523,41 @@
             <!-- Chart 3: Bar chart antes vs después -->
             <figure class="growth-video chart-card">
               <div class="growth-chart-wrap">
-                <span class="chart-stat">
+                <header class="chart-header">
                   <span class="chart-stat-num" data-target="340" data-suf="%" data-pre="+">0</span>
                   <span class="chart-stat-arrow">↑</span>
-                </span>
-                <svg class="chart" viewBox="0 0 400 200" preserveAspectRatio="none" aria-hidden="true">
-                  <defs>
-                    <linearGradient id="barGrad" x1="0" x2="0" y1="0" y2="1">
-                      <stop offset="0%" stop-color="#5DA9FF"/>
-                      <stop offset="100%" stop-color="#1155FF"/>
-                    </linearGradient>
-                  </defs>
-                  <g class="chart-grid">
-                    <line x1="0" y1="60" x2="400" y2="60"/>
-                    <line x1="0" y1="120" x2="400" y2="120"/>
-                  </g>
-                  <!-- Pair 1 -->
-                  <rect class="bar bar-before" x="20"  y="140" width="32" height="40"  rx="3"/>
-                  <rect class="bar bar-after"  x="56"  y="55"  width="32" height="125" rx="3" fill="url(#barGrad)"/>
-                  <!-- Pair 2 -->
-                  <rect class="bar bar-before" x="120" y="155" width="32" height="25"  rx="3"/>
-                  <rect class="bar bar-after"  x="156" y="40"  width="32" height="140" rx="3" fill="url(#barGrad)"/>
-                  <!-- Pair 3 -->
-                  <rect class="bar bar-before" x="220" y="150" width="32" height="30"  rx="3"/>
-                  <rect class="bar bar-after"  x="256" y="65"  width="32" height="115" rx="3" fill="url(#barGrad)"/>
-                  <!-- Pair 4 -->
-                  <rect class="bar bar-before" x="320" y="160" width="32" height="20"  rx="3"/>
-                  <rect class="bar bar-after"  x="356" y="80"  width="32" height="100" rx="3" fill="url(#barGrad)"/>
-                </svg>
-                <div class="chart-legend">
+                  <span class="chart-stat-label">promedio</span>
+                </header>
+                <div class="chart-body">
+                  <svg class="chart" viewBox="0 0 400 200" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="barGrad" x1="0" x2="0" y1="0" y2="1">
+                        <stop offset="0%" stop-color="#5DA9FF"/>
+                        <stop offset="100%" stop-color="#1155FF"/>
+                      </linearGradient>
+                    </defs>
+                    <g class="chart-grid">
+                      <line x1="0" y1="60" x2="400" y2="60"/>
+                      <line x1="0" y1="120" x2="400" y2="120"/>
+                    </g>
+                    <!-- Pair 1 -->
+                    <rect class="bar bar-before" x="20"  y="140" width="32" height="40"  rx="3"/>
+                    <rect class="bar bar-after"  x="56"  y="55"  width="32" height="125" rx="3" fill="url(#barGrad)"/>
+                    <!-- Pair 2 -->
+                    <rect class="bar bar-before" x="120" y="155" width="32" height="25"  rx="3"/>
+                    <rect class="bar bar-after"  x="156" y="40"  width="32" height="140" rx="3" fill="url(#barGrad)"/>
+                    <!-- Pair 3 -->
+                    <rect class="bar bar-before" x="220" y="150" width="32" height="30"  rx="3"/>
+                    <rect class="bar bar-after"  x="256" y="65"  width="32" height="115" rx="3" fill="url(#barGrad)"/>
+                    <!-- Pair 4 -->
+                    <rect class="bar bar-before" x="320" y="160" width="32" height="20"  rx="3"/>
+                    <rect class="bar bar-after"  x="356" y="80"  width="32" height="100" rx="3" fill="url(#barGrad)"/>
+                  </svg>
+                </div>
+                <footer class="chart-legend">
                   <span><span class="legend-dot legend-dot-muted"></span>Antes</span>
                   <span><span class="legend-dot" style="background:#1155FF"></span>Después</span>
-                </div>
+                </footer>
               </div>
               <figcaption>
                 <span class="growth-icon">
