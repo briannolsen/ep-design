@@ -1146,6 +1146,92 @@ button { cursor: pointer; border: none; background: none; }
 .bar-after { fill: url(#barGrad); }
 [data-theme="light"] .bar-before { fill: rgba(0,0,0,0.1); }
 
+/* === Chart 1: Pall-Metal bars (growth over time) === */
+.bar-track {
+  fill: rgba(255,255,255,0.04);
+  stroke: rgba(255,255,255,0.1);
+  stroke-width: 1;
+}
+[data-theme="light"] .bar-track {
+  fill: rgba(0,0,0,0.025);
+  stroke: rgba(0,0,0,0.08);
+}
+.bar-grow { fill: url(#barGradGrowth); }
+.chart-axis-bars {
+  /* Same display rules as default axis */
+}
+
+/* === Chart 2: Tucci 3 mini rings === */
+.chart-body-rings {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 0.5rem;
+  padding: 0.25rem 1rem 0.5rem;
+}
+.ring-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
+}
+.chart-mini-ring {
+  width: 100%;
+  max-width: 95px;
+  height: auto;
+  aspect-ratio: 1;
+}
+.ring-track {
+  stroke: rgba(255,255,255,0.06);
+}
+[data-theme="light"] .ring-track { stroke: rgba(0,0,0,0.07); }
+
+.ring-seg {
+  stroke-dasharray: 0 100;
+  transition: stroke-dasharray 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.chart-card.in-view .ring-seg-a { stroke-dasharray: 85.7 100; }
+.chart-card.in-view .ring-seg-b { stroke-dasharray: 80.3 100; transition-delay: 0.2s; }
+.chart-card.in-view .ring-seg-c { stroke-dasharray: 95.7 100; transition-delay: 0.4s; }
+
+.ring-num {
+  font-family: var(--font-head);
+  font-size: 22px;
+  font-weight: 700;
+  fill: var(--white);
+  letter-spacing: -0.02em;
+  dominant-baseline: middle;
+}
+[data-theme="light"] .ring-num { fill: var(--dark); }
+
+.ring-label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+[data-theme="light"] .ring-label { color: rgba(0,0,0,0.6); }
+
+/* === Chart 3: Meta Ads — single BIG donut === */
+.chart-donut-big { max-width: 180px; }
+.donut-main {
+  stroke-dasharray: 0 100;
+  transition: stroke-dasharray 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.chart-card.in-view .donut-main { stroke-dasharray: 78 100; }
+
+.donut-center-big strong {
+  font-size: 1.8rem;
+}
+.donut-center-big span {
+  font-size: 0.7rem;
+  margin-top: 0.4rem;
+}
+
 /* Stagger bar animations (4 pairs = 8 bars) */
 .bar:nth-of-type(1) { transition-delay: 0.0s; }
 .bar:nth-of-type(2) { transition-delay: 0.1s; }

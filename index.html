@@ -437,126 +437,36 @@
           </div>
           <div class="growth-videos-grid">
 
-            <!-- Chart 1: Line chart -->
+            <!-- Chart 1: Pall-Metal — Bars de seguidores -->
             <figure class="growth-video chart-card">
               <div class="growth-chart-wrap">
                 <header class="chart-header">
-                  <span class="chart-stat-num" data-target="5400" data-pre="+">0</span>
+                  <span class="chart-stat-num" data-target="10000">0</span>
                   <span class="chart-stat-arrow">↑</span>
                   <span class="chart-stat-label">seguidores</span>
                 </header>
                 <div class="chart-body">
-                  <svg class="chart" viewBox="0 0 400 200" preserveAspectRatio="none" aria-hidden="true">
+                  <svg class="chart chart-bars-growth" viewBox="0 0 400 200" preserveAspectRatio="none" aria-hidden="true">
                     <defs>
-                      <linearGradient id="lineFill1" x1="0" x2="0" y1="0" y2="1">
-                        <stop offset="0%" stop-color="#1155FF" stop-opacity="0.45"/>
-                        <stop offset="100%" stop-color="#1155FF" stop-opacity="0"/>
-                      </linearGradient>
-                    </defs>
-                    <g class="chart-grid">
-                      <line x1="0" y1="50" x2="400" y2="50"/>
-                      <line x1="0" y1="100" x2="400" y2="100"/>
-                      <line x1="0" y1="150" x2="400" y2="150"/>
-                    </g>
-                    <path class="chart-area" d="M0,170 L60,160 L110,140 L160,115 L210,90 L260,65 L310,45 L360,28 L390,20 L400,18 L400,200 L0,200 Z" fill="url(#lineFill1)"/>
-                    <path class="chart-stroke" d="M0,170 L60,160 L110,140 L160,115 L210,90 L260,65 L310,45 L360,28 L390,20" stroke="#1155FF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle class="chart-dot-pulse" cx="390" cy="20" r="6" fill="#5DA9FF"/>
-                    <circle class="chart-dot" cx="390" cy="20" r="5" fill="#1155FF" stroke="#fff" stroke-width="2"/>
-                  </svg>
-                </div>
-                <footer class="chart-axis">
-                  <span>Ene</span><span>Mar</span><span>May</span><span>Jul</span>
-                </footer>
-              </div>
-              <figcaption>
-                <span class="growth-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-                </span>
-                <div class="growth-text">
-                  <strong>Crecimiento de seguidores</strong>
-                  <span>Evolución orgánica · 7 meses</span>
-                </div>
-              </figcaption>
-            </figure>
-
-            <!-- Chart 2: Donut chart -->
-            <figure class="growth-video chart-card">
-              <div class="growth-chart-wrap chart-donut-wrap">
-                <header class="chart-header">
-                  <span class="chart-stat-num" data-target="2500000" data-format="M">0</span>
-                  <span class="chart-stat-arrow">↑</span>
-                  <span class="chart-stat-label">alcance</span>
-                </header>
-                <div class="chart-body chart-body-donut">
-                  <svg class="chart chart-donut" viewBox="0 0 200 200" aria-hidden="true">
-                    <g transform="translate(100, 100)">
-                      <circle class="donut-track" r="68" fill="none" stroke-width="20"/>
-                      <circle class="donut-seg donut-seg-1" r="68" fill="none" stroke="#1155FF"  stroke-width="20" pathLength="100" transform="rotate(-90)"/>
-                      <circle class="donut-seg donut-seg-2" r="68" fill="none" stroke="#5DA9FF"  stroke-width="20" pathLength="100" transform="rotate(-90)"/>
-                      <circle class="donut-seg donut-seg-3" r="68" fill="none" stroke="#88AAFF"  stroke-width="20" pathLength="100" transform="rotate(-90)"/>
-                      <circle class="donut-seg donut-seg-4" r="68" fill="none" stroke="#3377FF"  stroke-width="20" pathLength="100" transform="rotate(-90)"/>
-                    </g>
-                  </svg>
-                  <div class="donut-center">
-                    <strong>4 tipos</strong>
-                    <span>de contenido</span>
-                  </div>
-                </div>
-                <footer class="chart-legend chart-legend-grid">
-                  <span><span class="legend-dot" style="background:#1155FF"></span>Reels 45%</span>
-                  <span><span class="legend-dot" style="background:#5DA9FF"></span>Stories 28%</span>
-                  <span><span class="legend-dot" style="background:#88AAFF"></span>Posts 18%</span>
-                  <span><span class="legend-dot" style="background:#3377FF"></span>Lives 9%</span>
-                </footer>
-              </div>
-              <figcaption>
-                <span class="growth-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 4"/></svg>
-                </span>
-                <div class="growth-text">
-                  <strong>Distribución de alcance</strong>
-                  <span>Por tipo de contenido</span>
-                </div>
-              </figcaption>
-            </figure>
-
-            <!-- Chart 3: Bar chart antes vs después -->
-            <figure class="growth-video chart-card">
-              <div class="growth-chart-wrap">
-                <header class="chart-header">
-                  <span class="chart-stat-num" data-target="340" data-suf="%" data-pre="+">0</span>
-                  <span class="chart-stat-arrow">↑</span>
-                  <span class="chart-stat-label">promedio</span>
-                </header>
-                <div class="chart-body">
-                  <svg class="chart" viewBox="0 0 400 200" preserveAspectRatio="none" aria-hidden="true">
-                    <defs>
-                      <linearGradient id="barGrad" x1="0" x2="0" y1="0" y2="1">
+                      <linearGradient id="barGradGrowth" x1="0" x2="0" y1="0" y2="1">
                         <stop offset="0%" stop-color="#5DA9FF"/>
                         <stop offset="100%" stop-color="#1155FF"/>
                       </linearGradient>
                     </defs>
-                    <g class="chart-grid">
-                      <line x1="0" y1="60" x2="400" y2="60"/>
-                      <line x1="0" y1="120" x2="400" y2="120"/>
-                    </g>
-                    <!-- Pair 1 -->
-                    <rect class="bar bar-before" x="20"  y="140" width="32" height="40"  rx="3"/>
-                    <rect class="bar bar-after"  x="56"  y="55"  width="32" height="125" rx="3" fill="url(#barGrad)"/>
-                    <!-- Pair 2 -->
-                    <rect class="bar bar-before" x="120" y="155" width="32" height="25"  rx="3"/>
-                    <rect class="bar bar-after"  x="156" y="40"  width="32" height="140" rx="3" fill="url(#barGrad)"/>
-                    <!-- Pair 3 -->
-                    <rect class="bar bar-before" x="220" y="150" width="32" height="30"  rx="3"/>
-                    <rect class="bar bar-after"  x="256" y="65"  width="32" height="115" rx="3" fill="url(#barGrad)"/>
-                    <!-- Pair 4 -->
-                    <rect class="bar bar-before" x="320" y="160" width="32" height="20"  rx="3"/>
-                    <rect class="bar bar-after"  x="356" y="80"  width="32" height="100" rx="3" fill="url(#barGrad)"/>
+                    <!-- Bar tracks (outline empty) -->
+                    <rect class="bar-track" x="35"  y="22" width="55" height="158" rx="6"/>
+                    <rect class="bar-track" x="125" y="22" width="55" height="158" rx="6"/>
+                    <rect class="bar-track" x="215" y="22" width="55" height="158" rx="6"/>
+                    <rect class="bar-track" x="305" y="22" width="55" height="158" rx="6"/>
+                    <!-- Filled bars (growth portion) -->
+                    <rect class="bar bar-grow bar-grow-1" x="35"  y="164" width="55" height="16"  rx="6" fill="url(#barGradGrowth)"/>
+                    <rect class="bar bar-grow bar-grow-2" x="125" y="133" width="55" height="47"  rx="6" fill="url(#barGradGrowth)"/>
+                    <rect class="bar bar-grow bar-grow-3" x="215" y="63"  width="55" height="117" rx="6" fill="url(#barGradGrowth)"/>
+                    <rect class="bar bar-grow bar-grow-4" x="305" y="22"  width="55" height="158" rx="6" fill="url(#barGradGrowth)"/>
                   </svg>
                 </div>
-                <footer class="chart-legend">
-                  <span><span class="legend-dot legend-dot-muted"></span>Antes</span>
-                  <span><span class="legend-dot" style="background:#1155FF"></span>Después</span>
+                <footer class="chart-axis chart-axis-bars">
+                  <span>Jul '24</span><span>Oct '24</span><span>Ene '25</span><span>Jul '25</span>
                 </footer>
               </div>
               <figcaption>
@@ -564,8 +474,95 @@
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
                 </span>
                 <div class="growth-text">
-                  <strong>Antes vs después</strong>
-                  <span>Promedio de clientes</span>
+                  <strong>Pall-Metal</strong>
+                  <span>Crecimiento orgánico · 1 año</span>
+                </div>
+              </figcaption>
+            </figure>
+
+            <!-- Chart 2: Inmobiliaria F. Tucci — 3 ring progress meters -->
+            <figure class="growth-video chart-card">
+              <div class="growth-chart-wrap">
+                <header class="chart-header">
+                  <span class="chart-stat-num" data-target="87" data-suf="%" data-pre="+">0</span>
+                  <span class="chart-stat-arrow">↑</span>
+                  <span class="chart-stat-label">conversión promedio</span>
+                </header>
+                <div class="chart-body chart-body-rings">
+                  <div class="ring-group">
+                    <svg class="chart chart-mini-ring" viewBox="0 0 100 100" aria-hidden="true">
+                      <g transform="translate(50, 50)">
+                        <circle class="ring-track" r="38" fill="none" stroke-width="9"/>
+                        <circle class="ring-seg ring-seg-a" r="38" fill="none" stroke="#1155FF" stroke-width="9" stroke-linecap="round" pathLength="100" transform="rotate(-90)"/>
+                      </g>
+                      <text class="ring-num" data-target="85.7" data-suf="%" x="50" y="55" text-anchor="middle">0</text>
+                    </svg>
+                    <span class="ring-label">Countrys</span>
+                  </div>
+                  <div class="ring-group">
+                    <svg class="chart chart-mini-ring" viewBox="0 0 100 100" aria-hidden="true">
+                      <g transform="translate(50, 50)">
+                        <circle class="ring-track" r="38" fill="none" stroke-width="9"/>
+                        <circle class="ring-seg ring-seg-b" r="38" fill="none" stroke="#1155FF" stroke-width="9" stroke-linecap="round" pathLength="100" transform="rotate(-90)"/>
+                      </g>
+                      <text class="ring-num" data-target="80.3" data-suf="%" data-pre="+" x="50" y="55" text-anchor="middle">0</text>
+                    </svg>
+                    <span class="ring-label">Parques ind.</span>
+                  </div>
+                  <div class="ring-group">
+                    <svg class="chart chart-mini-ring" viewBox="0 0 100 100" aria-hidden="true">
+                      <g transform="translate(50, 50)">
+                        <circle class="ring-track" r="38" fill="none" stroke-width="9"/>
+                        <circle class="ring-seg ring-seg-c" r="38" fill="none" stroke="#1155FF" stroke-width="9" stroke-linecap="round" pathLength="100" transform="rotate(-90)"/>
+                      </g>
+                      <text class="ring-num" data-target="95.7" data-suf="%" data-pre="+" x="50" y="55" text-anchor="middle">0</text>
+                    </svg>
+                    <span class="ring-label">Zona Oeste</span>
+                  </div>
+                </div>
+              </div>
+              <figcaption>
+                <span class="growth-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>
+                </span>
+                <div class="growth-text">
+                  <strong>Inmobiliaria Francesco Tucci</strong>
+                  <span>Conversión por zona</span>
+                </div>
+              </figcaption>
+            </figure>
+
+            <!-- Chart 3: Meta Ads — Single big donut +150 consultas -->
+            <figure class="growth-video chart-card">
+              <div class="growth-chart-wrap chart-donut-wrap">
+                <header class="chart-header">
+                  <span class="chart-stat-num" data-target="150" data-pre="+">0</span>
+                  <span class="chart-stat-arrow">↑</span>
+                  <span class="chart-stat-label">consultas Meta Ads</span>
+                </header>
+                <div class="chart-body chart-body-donut">
+                  <svg class="chart chart-donut chart-donut-big" viewBox="0 0 200 200" aria-hidden="true">
+                    <g transform="translate(100, 100)">
+                      <circle class="donut-track" r="68" fill="none" stroke-width="22"/>
+                      <circle class="donut-main" r="68" fill="none" stroke="#1155FF" stroke-width="22" pathLength="100" transform="rotate(-90)"/>
+                    </g>
+                  </svg>
+                  <div class="donut-center donut-center-big">
+                    <strong>+150</strong>
+                    <span>consultas</span>
+                  </div>
+                </div>
+                <footer class="chart-legend">
+                  <span><span class="legend-dot" style="background:#1155FF"></span>Conversiones desde campaña</span>
+                </footer>
+              </div>
+              <figcaption>
+                <span class="growth-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                </span>
+                <div class="growth-text">
+                  <strong>Meta Ads · Consultas</strong>
+                  <span>Conversión desde campañas</span>
                 </div>
               </figcaption>
             </figure>
