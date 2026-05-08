@@ -1224,13 +1224,31 @@ button { cursor: pointer; border: none; background: none; }
 }
 .chart-card.in-view .donut-main { stroke-dasharray: 78 100; }
 
-.donut-center-big strong {
-  font-size: 1.8rem;
+/* Donut center text (SVG, escala con el chart) */
+.donut-center-svg {
+  opacity: 0;
+  transition: opacity 0.5s 1s ease-out;
 }
-.donut-center-big span {
-  font-size: 0.7rem;
-  margin-top: 0.4rem;
+.chart-card.in-view .donut-center-svg { opacity: 1; }
+
+.donut-center-num {
+  font-family: var(--font-head);
+  font-size: 32px;          /* SVG units en viewBox 0 0 200 200 */
+  font-weight: 700;
+  fill: var(--white);
+  letter-spacing: -0.02em;
+  dominant-baseline: middle;
 }
+.donut-center-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  fill: rgba(255,255,255,0.55);
+  dominant-baseline: middle;
+}
+[data-theme="light"] .donut-center-num { fill: var(--dark); }
+[data-theme="light"] .donut-center-label { fill: rgba(0,0,0,0.5); }
 
 /* Stagger bar animations (4 pairs = 8 bars) */
 .bar:nth-of-type(1) { transition-delay: 0.0s; }
