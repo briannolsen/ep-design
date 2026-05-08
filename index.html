@@ -476,46 +476,40 @@
               </figcaption>
             </figure>
 
-            <!-- Chart 2: Multi-area chart -->
+            <!-- Chart 2: Donut chart -->
             <figure class="growth-video chart-card">
-              <div class="growth-chart-wrap">
+              <div class="growth-chart-wrap chart-donut-wrap">
                 <span class="chart-stat">
                   <span class="chart-stat-num" data-target="2500000" data-format="M">0</span>
                   <span class="chart-stat-arrow">↑</span>
                 </span>
-                <svg class="chart" viewBox="0 0 400 200" preserveAspectRatio="none" aria-hidden="true">
-                  <defs>
-                    <linearGradient id="areaFill2a" x1="0" x2="0" y1="0" y2="1">
-                      <stop offset="0%" stop-color="#5DA9FF" stop-opacity="0.5"/>
-                      <stop offset="100%" stop-color="#5DA9FF" stop-opacity="0"/>
-                    </linearGradient>
-                    <linearGradient id="areaFill2b" x1="0" x2="0" y1="0" y2="1">
-                      <stop offset="0%" stop-color="#1155FF" stop-opacity="0.7"/>
-                      <stop offset="100%" stop-color="#1155FF" stop-opacity="0"/>
-                    </linearGradient>
-                  </defs>
-                  <g class="chart-grid">
-                    <line x1="0" y1="50" x2="400" y2="50"/>
-                    <line x1="0" y1="100" x2="400" y2="100"/>
-                    <line x1="0" y1="150" x2="400" y2="150"/>
+                <svg class="chart chart-donut" viewBox="0 0 200 200" aria-hidden="true">
+                  <g transform="translate(100, 100)">
+                    <circle class="donut-track" r="68" fill="none" stroke-width="20"/>
+                    <circle class="donut-seg donut-seg-1" r="68" fill="none" stroke="#1155FF"  stroke-width="20" pathLength="100" transform="rotate(-90)"/>
+                    <circle class="donut-seg donut-seg-2" r="68" fill="none" stroke="#5DA9FF"  stroke-width="20" pathLength="100" transform="rotate(-90)"/>
+                    <circle class="donut-seg donut-seg-3" r="68" fill="none" stroke="#88AAFF"  stroke-width="20" pathLength="100" transform="rotate(-90)"/>
+                    <circle class="donut-seg donut-seg-4" r="68" fill="none" stroke="#3377FF"  stroke-width="20" pathLength="100" transform="rotate(-90)"/>
                   </g>
-                  <path class="chart-area chart-area-1" d="M0,140 L50,130 L100,120 L150,95 L200,85 L250,60 L300,45 L350,28 L400,15 L400,200 L0,200 Z" fill="url(#areaFill2a)"/>
-                  <path class="chart-area chart-area-2" d="M0,170 L50,165 L100,155 L150,140 L200,125 L250,108 L300,88 L350,68 L400,52 L400,200 L0,200 Z" fill="url(#areaFill2b)"/>
-                  <path class="chart-stroke chart-stroke-1" d="M0,140 L50,130 L100,120 L150,95 L200,85 L250,60 L300,45 L350,28 L400,15" stroke="#5DA9FF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path class="chart-stroke chart-stroke-2" d="M0,170 L50,165 L100,155 L150,140 L200,125 L250,108 L300,88 L350,68 L400,52" stroke="#1155FF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <div class="chart-legend">
-                  <span><span class="legend-dot" style="background:#1155FF"></span>Alcance</span>
-                  <span><span class="legend-dot" style="background:#5DA9FF"></span>Engagement</span>
+                <div class="donut-center">
+                  <strong>Alcance</strong>
+                  <span>distribución</span>
+                </div>
+                <div class="chart-legend chart-legend-grid">
+                  <span><span class="legend-dot" style="background:#1155FF"></span>Reels 45%</span>
+                  <span><span class="legend-dot" style="background:#5DA9FF"></span>Stories 28%</span>
+                  <span><span class="legend-dot" style="background:#88AAFF"></span>Posts 18%</span>
+                  <span><span class="legend-dot" style="background:#3377FF"></span>Lives 9%</span>
                 </div>
               </div>
               <figcaption>
                 <span class="growth-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 4"/></svg>
                 </span>
                 <div class="growth-text">
-                  <strong>Alcance e interacciones</strong>
-                  <span>Vista por períodos</span>
+                  <strong>Distribución de alcance</strong>
+                  <span>Por tipo de contenido</span>
                 </div>
               </figcaption>
             </figure>

@@ -1129,13 +1129,12 @@ button { cursor: pointer; border: none; background: none; }
   transform: scale(1);
 }
 .bar {
-  fill: rgba(255,255,255,0.14);
   transform: scaleY(0);
   transform-origin: bottom;
   transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.bar-before { fill: rgba(255,255,255,0.14); }
-[data-theme="light"] .bar,
+.bar-before { fill: rgba(255,255,255,0.16); }
+.bar-after { fill: url(#barGrad); }
 [data-theme="light"] .bar-before { fill: rgba(0,0,0,0.1); }
 
 /* Stagger bar animations (4 pairs = 8 bars) */
@@ -1161,6 +1160,83 @@ button { cursor: pointer; border: none; background: none; }
   0%   { opacity: 0.8; transform: scale(1); }
   100% { opacity: 0;   transform: scale(3.2); }
 }
+
+/* === Donut chart (chart 2) === */
+.chart-donut-wrap {
+  padding: 1.25rem 1.25rem 3rem;
+}
+.chart-donut {
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
+  display: block;
+  aspect-ratio: 1;
+}
+.donut-track { stroke: rgba(255,255,255,0.06); }
+[data-theme="light"] .donut-track { stroke: rgba(0,0,0,0.07); }
+
+.donut-seg {
+  stroke-linecap: butt;
+  stroke-dasharray: 0 100;
+  transition: stroke-dasharray 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.donut-seg-1 { stroke-dashoffset: 0;   }
+.donut-seg-2 { stroke-dashoffset: -45; transition-delay: 0.25s; }
+.donut-seg-3 { stroke-dashoffset: -73; transition-delay: 0.5s;  }
+.donut-seg-4 { stroke-dashoffset: -91; transition-delay: 0.75s; }
+
+.chart-card.in-view .donut-seg-1 { stroke-dasharray: 45 100; }
+.chart-card.in-view .donut-seg-2 { stroke-dasharray: 28 100; }
+.chart-card.in-view .donut-seg-3 { stroke-dasharray: 18 100; }
+.chart-card.in-view .donut-seg-4 { stroke-dasharray: 9 100;  }
+
+.donut-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s 1s ease-out, transform 0.5s 1s ease-out;
+}
+.chart-card.in-view .donut-center {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+.donut-center strong {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+.donut-center span {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 0.35rem;
+  font-weight: 500;
+}
+[data-theme="light"] .donut-center strong { color: var(--dark); }
+[data-theme="light"] .donut-center span { color: rgba(0,0,0,0.5); }
+
+/* Legend grid (donut needs 2 cols for 4 segments) */
+.chart-legend-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.4rem 0.85rem;
+  left: 1.25rem;
+  right: 1.25rem;
+  bottom: 0.85rem;
+  font-size: 0.68rem;
+}
+.chart-legend-grid span { white-space: nowrap; }
 
 @media (prefers-reduced-motion: reduce) {
   .chart-stroke, .chart-area, .chart-dot, .bar {
