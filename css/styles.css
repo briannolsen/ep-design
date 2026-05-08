@@ -1198,10 +1198,10 @@ button { cursor: pointer; border: none; background: none; }
 
 .ring-num {
   font-family: var(--font-head);
-  font-size: 22px;
+  font-size: 14px;
   font-weight: 700;
   fill: var(--white);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   dominant-baseline: middle;
 }
 [data-theme="light"] .ring-num { fill: var(--dark); }
