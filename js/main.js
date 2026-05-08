@@ -622,6 +622,51 @@ setupMarquee();
 })();
 
 /* ══════════════════════════════════════
+   GROWTH CHARTS — animaciones SVG + stat counter
+══════════════════════════════════════ */
+function animateChartStat(el) {
+  const target = parseInt(el.dataset.target, 10);
+  const fmt    = el.dataset.format;
+  const suf    = el.dataset.suf || '';
+  const pre    = el.dataset.pre || '';
+  const dur    = 2000;
+  const start  = performance.now() + 700; // sync con dibujo del chart
+  function tick(now) {
+    if (now < start) { requestAnimationFrame(tick); return; }
+    const p = Math.min((now - start) / dur, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    const cur = Math.round(target * eased);
+    let formatted;
+    if (fmt === 'M') {
+      formatted = (cur / 1000000).toFixed(1) + 'M';
+    } else if (target >= 1000) {
+      formatted = cur.toLocaleString('es-AR');
+    } else {
+      formatted = cur;
+    }
+    el.textContent = pre + formatted + suf;
+    if (p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+const chartObserver = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      const num = entry.target.querySelector('.chart-stat-num');
+      if (num && !num.dataset.animated) {
+        num.dataset.animated = '1';
+        animateChartStat(num);
+      }
+      // Una sola vez (en touch y desktop — los charts no necesitan replay)
+      obs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.35 });
+document.querySelectorAll('.chart-card').forEach(el => chartObserver.observe(el));
+
+/* ══════════════════════════════════════
    PORTFOLIO TABS — Filter by category
 ══════════════════════════════════════ */
 document.querySelectorAll('.port-tab').forEach(tab => {
