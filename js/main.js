@@ -46,7 +46,7 @@ function animateCursor() {
 }
 animateCursor();
 
-document.querySelectorAll('a, button, .srv-card, .pain-card, .testi-card, .blog-card').forEach(el => {
+document.querySelectorAll('a, button, .srv-card, .pain-card, .blog-card').forEach(el => {
   el.addEventListener('mouseenter', () => cursor?.classList.add('hover'));
   el.addEventListener('mouseleave', () => cursor?.classList.remove('hover'));
 });
@@ -366,22 +366,6 @@ gsap.utils.toArray('.result-card').forEach((el, i) => {
   });
 });
 
-// Testimonial cards
-gsap.utils.toArray('.testi-card').forEach((el, i) => {
-  gsap.fromTo(el, { opacity: 0, y: 36, scale: 0.97 }, {
-    opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'power3.out', delay: i * 0.15,
-    scrollTrigger: { trigger: el, start: 'top 80%', ...TRIG }
-  });
-});
-
-// Portfolio items
-gsap.utils.toArray('.port-item').forEach((el, i) => {
-  gsap.fromTo(el, { opacity: 0, scale: 0.92 }, {
-    opacity: 1, scale: 1, duration: 0.85, ease: 'power3.out', delay: (i % 3) * 0.1,
-    scrollTrigger: { trigger: el, start: 'top 82%', ...TRIG }
-  });
-});
-
 // Blog cards
 gsap.utils.toArray('.blog-card').forEach((el, i) => {
   gsap.fromTo(el, { opacity: 0, y: 32 }, {
@@ -562,66 +546,6 @@ function setupMarquee() {
 setupMarquee();
 
 /* ══════════════════════════════════════
-   TESTIMONIALS CAROUSEL
-══════════════════════════════════════ */
-(() => {
-  const track = document.getElementById('testiCarousel');
-  const prevBtn = document.getElementById('testiPrev');
-  const nextBtn = document.getElementById('testiNext');
-  if (!track || !prevBtn || !nextBtn) return;
-
-  const cards = track.querySelectorAll('.testi-card');
-  const total = cards.length;
-  const gap = 24;
-  let current = 0;
-
-  function getVisible() {
-    const w = window.innerWidth;
-    if (w <= 640) return 1;
-    if (w <= 1024) return 2;
-    return 3;
-  }
-
-  function sizeCards() {
-    const wrapW = track.parentElement.offsetWidth;
-    const visible = getVisible();
-    const cardW = (wrapW - gap * (visible - 1)) / visible;
-    cards.forEach(c => { c.style.width = cardW + 'px'; });
-  }
-
-  function slide() {
-    const visible = getVisible();
-    const maxIdx = Math.max(0, total - visible);
-    if (current < 0) current = 0;
-    if (current > maxIdx) current = maxIdx;
-
-    const cardW = cards[0].offsetWidth;
-    const offset = current * (cardW + gap);
-    track.style.transform = `translateX(-${offset}px)`;
-
-    prevBtn.disabled = current === 0;
-    nextBtn.disabled = current >= maxIdx;
-  }
-
-  function refresh() { sizeCards(); slide(); }
-
-  prevBtn.addEventListener('click', () => { current--; slide(); });
-  nextBtn.addEventListener('click', () => { current++; slide(); });
-
-  // Swipe
-  let startX = 0;
-  track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend', (e) => {
-    const diff = startX - e.changedTouches[0].clientX;
-    if (diff > 50) { current++; slide(); }
-    else if (diff < -50) { current--; slide(); }
-  }, { passive: true });
-
-  window.addEventListener('resize', refresh, { passive: true });
-  refresh();
-})();
-
-/* ══════════════════════════════════════
    GROWTH CHARTS — animaciones SVG + stat counter
 ══════════════════════════════════════ */
 function animateChartStat(el, opts = {}) {
@@ -677,32 +601,6 @@ const chartObserver = new IntersectionObserver((entries, obs) => {
   });
 }, { threshold: 0.35 });
 document.querySelectorAll('.chart-card').forEach(el => chartObserver.observe(el));
-
-/* ══════════════════════════════════════
-   PORTFOLIO TABS — Filter by category
-══════════════════════════════════════ */
-document.querySelectorAll('.port-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.port-tab').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-
-    const filter = tab.dataset.filter;
-    document.querySelectorAll('.port-item').forEach(item => {
-      if (filter === 'all' || item.dataset.cat === filter) {
-        item.style.display = '';
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(20px)';
-        requestAnimationFrame(() => {
-          item.style.transition = 'opacity 0.4s, transform 0.4s';
-          item.style.opacity = '1';
-          item.style.transform = 'none';
-        });
-      } else {
-        item.style.display = 'none';
-      }
-    });
-  });
-});
 
 /* ══════════════════════════════════════
    FOCUS TRAP — Mobile Menu
