@@ -1,7 +1,7 @@
 {
   "source": "instagram-graph-api/business_discovery",
   "sample": false,
-  "updated_at": "2026-10-15T19:39:38.445Z",
+  "updated_at": "2026-10-15T19:57:20.705Z",
   "accounts": [
     {
       "username": "grupoalbani_",
@@ -72,7 +72,7 @@
       "username": "big_globos",
       "name": "Big Globos",
       "profile_picture_url": "assets/instagram/big_globos/profile.jpg",
-      "followers_count": 14647,
+      "followers_count": 14650,
       "media_count": 190,
       "media": {
         "data": [
@@ -202,7 +202,7 @@
       "username": "meleycia",
       "name": "Melé y Cía",
       "profile_picture_url": "assets/instagram/meleycia/profile.jpg",
-      "followers_count": 5293,
+      "followers_count": 5296,
       "media_count": 123,
       "media": {
         "data": [
@@ -267,7 +267,7 @@
       "username": "pallmetal",
       "name": "Pall-Metal",
       "profile_picture_url": "assets/instagram/pallmetal/profile.jpg",
-      "followers_count": 11314,
+      "followers_count": 11315,
       "media_count": 247,
       "media": {
         "data": [
