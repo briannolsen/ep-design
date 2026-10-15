@@ -603,6 +603,209 @@ const chartObserver = new IntersectionObserver((entries, obs) => {
 document.querySelectorAll('.chart-card').forEach(el => chartObserver.observe(el));
 
 /* ══════════════════════════════════════
+   INSTAGRAM — perfiles de clientes vía la API oficial.
+   data/instagram.json lo genera scripts/fetch-instagram.mjs
+══════════════════════════════════════ */
+const SVG_NS = 'http://www.w3.org/2000/svg';
+
+function igEl(tag, className, text) {
+  const el = document.createElement(tag);
+  if (className) el.className = className;
+  if (text != null) el.textContent = text;
+  return el;
+}
+
+function igIcon(id, className) {
+  const svg = document.createElementNS(SVG_NS, 'svg');
+  svg.setAttribute('aria-hidden', 'true');
+  if (className) svg.setAttribute('class', className);
+  const use = document.createElementNS(SVG_NS, 'use');
+  use.setAttribute('href', '#' + id);
+  svg.appendChild(use);
+  return svg;
+}
+
+const igNum = n => Number(n).toLocaleString('es-AR');
+const igProfileUrl = username => 'https://www.instagram.com/' + encodeURIComponent(username) + '/';
+
+// Los datos vienen de afuera: solo se aceptan URLs https o del propio sitio
+function igSafeUrl(url, fallback) {
+  if (!url) return fallback;
+  try {
+    const u = new URL(url, location.href);
+    return u.protocol === 'https:' || u.origin === location.origin ? u.href : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function igInitials(name) {
+  return name.split(/\s+/).filter(w => w.length > 1).slice(0, 2).map(w => w[0].toUpperCase()).join('');
+}
+
+function igAvatar(className, picUrl, name) {
+  const wrap = igEl('span', 'ig-ring ' + className);
+  const src = igSafeUrl(picUrl, '');
+  if (src) {
+    const img = igEl('img');
+    img.src = src;
+    img.alt = '';
+    img.loading = 'lazy';
+    wrap.appendChild(img);
+  } else {
+    const initials = igEl('span', 'ig-initials', igInitials(name));
+    initials.setAttribute('aria-hidden', 'true');
+    wrap.appendChild(initials);
+  }
+  return wrap;
+}
+
+function igTypeBadge(mediaType) {
+  if (mediaType === 'VIDEO') return igIcon('ig-reel', 'ig-type');
+  if (mediaType === 'CAROUSEL_ALBUM') return igIcon('ig-carousel', 'ig-type');
+  return null;
+}
+
+function igExternalLink(className, href, label) {
+  const a = igEl('a', className);
+  a.href = href;
+  a.target = '_blank';
+  a.rel = 'noopener';
+  a.setAttribute('aria-label', label + ' (se abre en otra pestaña)');
+  return a;
+}
+
+const IG_IS_LOCAL = ['localhost', '127.0.0.1', ''].includes(location.hostname);
+
+// Los elementos se crean después de que el cursor custom registró sus hovers
+function igCursorHover(root) {
+  root.addEventListener('mouseover', e => { if (e.target.closest('a, button')) cursor?.classList.add('hover'); });
+  root.addEventListener('mouseout', e => { if (e.target.closest('a, button')) cursor?.classList.remove('hover'); });
+}
+
+function igApiProfile(acc) {
+  const name = acc.name || acc.username;
+  const profileUrl = igProfileUrl(acc.username);
+  const profile = igEl('div', 'igp-profile');
+
+  const head = igEl('div', 'igp-head');
+  head.appendChild(igAvatar('igp-avatar', acc.profile_picture_url, name));
+  const meta = igEl('div', 'igp-meta');
+  meta.appendChild(igEl('h3', 'igp-name', name));
+  meta.appendChild(igEl('span', 'igp-handle', '@' + acc.username));
+  const stats = igEl('ul', 'igp-stats');
+  [[acc.media_count, 'publicaciones'], [acc.followers_count, 'seguidores']].forEach(([n, label]) => {
+    if (n == null) return;
+    const li = igEl('li');
+    li.appendChild(igEl('strong', null, igNum(n)));
+    li.append(label);
+    stats.appendChild(li);
+  });
+  meta.appendChild(stats);
+  head.appendChild(meta);
+  const follow = igExternalLink('igp-follow', profileUrl, 'Seguir a ' + name + ' en Instagram');
+  follow.appendChild(igIcon('ig-icon'));
+  follow.append('Seguir en Instagram');
+  head.appendChild(follow);
+  profile.appendChild(head);
+
+  const grid = igEl('div', 'igp-grid');
+  (acc.media?.data || []).slice(0, 6).forEach(m => {
+    const post = igExternalLink('igp-post', igSafeUrl(m.permalink, profileUrl), 'Ver publicación de ' + name + ' en Instagram');
+    const img = igEl('img');
+    img.src = igSafeUrl(m.media_type === 'VIDEO' ? m.thumbnail_url || m.media_url : m.media_url, '');
+    img.alt = '';
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    post.appendChild(img);
+    const badge = igTypeBadge(m.media_type);
+    if (badge) post.appendChild(badge);
+    const overlay = igEl('span', 'igp-overlay');
+    [[m.like_count, 'ig-heart'], [m.comments_count, 'ig-comment']].forEach(([n, icon]) => {
+      if (n == null) return;
+      const s = igEl('span');
+      s.appendChild(igIcon(icon));
+      s.append(igNum(n));
+      overlay.appendChild(s);
+    });
+    post.appendChild(overlay);
+    grid.appendChild(post);
+  });
+  profile.appendChild(grid);
+  return profile;
+}
+
+async function initIgApi(root) {
+  const tabs = root.querySelector('.igp-tabs');
+  const panel = root.querySelector('.igp-panel');
+  let data;
+  try {
+    const res = await fetch(root.dataset.src, { cache: 'no-cache' });
+    if (!res.ok) throw new Error(res.status);
+    data = await res.json();
+  } catch {
+    panel.replaceChildren(igEl('p', 'ig-error', 'No pudimos cargar los perfiles en este momento.'));
+    return;
+  }
+  let accounts = data.accounts || [];
+  if (!accounts.length) return;
+  if (data.sample) {
+    // Los números y posts de ejemplo nunca se muestran en la web publicada
+    if (IG_IS_LOCAL) root.querySelector('.ig-sample-badge')?.removeAttribute('hidden');
+    else accounts = accounts.map(({ username, name, profile_picture_url }) => ({ username, name, profile_picture_url }));
+  }
+
+  accounts.forEach((acc, i) => {
+    const name = acc.name || acc.username;
+    const tab = igEl('button', 'igp-tab');
+    tab.type = 'button';
+    tab.id = 'igp-tab-' + i;
+    tab.setAttribute('role', 'tab');
+    tab.setAttribute('aria-controls', panel.id);
+    tab.appendChild(igAvatar('igp-tab-avatar', acc.profile_picture_url, name));
+    tab.appendChild(igEl('span', null, name));
+    tab.addEventListener('click', () => select(i));
+    tabs.appendChild(tab);
+  });
+
+  let current = -1;
+  let switchTimer;
+  function select(i) {
+    if (i === current) return;
+    const first = current === -1;
+    current = i;
+    [...tabs.children].forEach((t, j) => {
+      t.setAttribute('aria-selected', String(j === i));
+      t.tabIndex = j === i ? 0 : -1;
+    });
+    panel.setAttribute('aria-labelledby', tabs.children[i].id);
+    clearTimeout(switchTimer);
+    if (first) { panel.replaceChildren(igApiProfile(accounts[i])); return; }
+    panel.classList.add('is-switching');
+    switchTimer = setTimeout(() => {
+      panel.replaceChildren(igApiProfile(accounts[i]));
+      panel.classList.remove('is-switching');
+    }, 180);
+  }
+
+  // Flechas del teclado entre pestañas (patrón ARIA tabs)
+  tabs.addEventListener('keydown', e => {
+    const step = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+    if (!step) return;
+    e.preventDefault();
+    const next = (current + step + accounts.length) % accounts.length;
+    select(next);
+    tabs.children[next].focus();
+  });
+
+  select(0);
+  igCursorHover(root);
+}
+
+const igApiRoot = document.getElementById('igApi');
+if (igApiRoot) initIgApi(igApiRoot);
+
+/* ══════════════════════════════════════
    FOCUS TRAP — Mobile Menu
 ══════════════════════════════════════ */
 
