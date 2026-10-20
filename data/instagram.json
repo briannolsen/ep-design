@@ -1,13 +1,13 @@
 {
   "source": "instagram-graph-api/business_discovery",
   "sample": false,
-  "updated_at": "2026-10-19T16:23:41.406Z",
+  "updated_at": "2026-10-20T14:14:21.915Z",
   "accounts": [
     {
       "username": "grupoalbani_",
       "name": "Grupo Albani",
       "profile_picture_url": "assets/instagram/grupoalbani_/profile.jpg",
-      "followers_count": 506,
+      "followers_count": 512,
       "media_count": 58,
       "media": {
         "data": [
@@ -72,7 +72,7 @@
       "username": "big_globos",
       "name": "Big Globos",
       "profile_picture_url": "assets/instagram/big_globos/profile.jpg",
-      "followers_count": 15124,
+      "followers_count": 15126,
       "media_count": 191,
       "media": {
         "data": [
@@ -99,7 +99,7 @@
             "media_type": "VIDEO",
             "media_url": "assets/instagram/big_globos/17993005746028032.jpg",
             "permalink": "https://www.instagram.com/reel/DeSfAY3xu4x/",
-            "like_count": 162,
+            "like_count": 167,
             "comments_count": 3,
             "timestamp": "2026-10-09T21:34:33+0000"
           },
@@ -137,7 +137,7 @@
       "username": "donaidesa",
       "name": "Donaide",
       "profile_picture_url": "assets/instagram/donaidesa/profile.jpg",
-      "followers_count": 6043,
+      "followers_count": 6047,
       "media_count": 122,
       "media": {
         "data": [
@@ -202,7 +202,7 @@
       "username": "meleycia",
       "name": "Melé y Cía",
       "profile_picture_url": "assets/instagram/meleycia/profile.jpg",
-      "followers_count": 5521,
+      "followers_count": 5582,
       "media_count": 124,
       "media": {
         "data": [
@@ -267,8 +267,8 @@
       "username": "pallmetal",
       "name": "Pall-Metal",
       "profile_picture_url": "assets/instagram/pallmetal/profile.jpg",
-      "followers_count": 11434,
-      "media_count": 248,
+      "followers_count": 11465,
+      "media_count": 249,
       "media": {
         "data": [
           {
