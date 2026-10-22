@@ -1,13 +1,13 @@
 {
   "source": "instagram-graph-api/business_discovery",
   "sample": false,
-  "updated_at": "2026-10-21T14:26:25.039Z",
+  "updated_at": "2026-10-22T14:27:54.043Z",
   "accounts": [
     {
       "username": "grupoalbani_",
       "name": "Grupo Albani",
       "profile_picture_url": "assets/instagram/grupoalbani_/profile.jpg",
-      "followers_count": 516,
+      "followers_count": 517,
       "media_count": 59,
       "media": {
         "data": [
@@ -72,7 +72,7 @@
       "username": "big_globos",
       "name": "Big Globos",
       "profile_picture_url": "assets/instagram/big_globos/profile.jpg",
-      "followers_count": 15133,
+      "followers_count": 15138,
       "media_count": 192,
       "media": {
         "data": [
@@ -81,7 +81,7 @@
             "media_type": "CAROUSEL_ALBUM",
             "media_url": "assets/instagram/big_globos/17934405543144302.jpg",
             "permalink": "https://www.instagram.com/p/Deurh8ID7Ym/",
-            "like_count": 3,
+            "like_count": 4,
             "comments_count": 1,
             "timestamp": "2026-10-20T20:21:57+0000"
           },
@@ -91,7 +91,7 @@
             "media_url": "assets/instagram/big_globos/18116393785818920.jpg",
             "permalink": "https://www.instagram.com/reel/DekkSoVRjq7/",
             "like_count": 15,
-            "comments_count": 0,
+            "comments_count": 1,
             "timestamp": "2026-10-16T22:11:03+0000"
           },
           {
@@ -108,7 +108,7 @@
             "media_type": "VIDEO",
             "media_url": "assets/instagram/big_globos/17993005746028032.jpg",
             "permalink": "https://www.instagram.com/reel/DeSfAY3xu4x/",
-            "like_count": 167,
+            "like_count": 176,
             "comments_count": 3,
             "timestamp": "2026-10-09T21:34:33+0000"
           },
@@ -117,7 +117,7 @@
             "media_type": "VIDEO",
             "media_url": "assets/instagram/big_globos/18103110089290178.jpg",
             "permalink": "https://www.instagram.com/reel/DeP0WG-vfc6/",
-            "like_count": 28,
+            "like_count": 29,
             "comments_count": 0,
             "timestamp": "2026-10-08T20:43:06+0000"
           },
@@ -137,7 +137,7 @@
       "username": "donaidesa",
       "name": "Donaide",
       "profile_picture_url": "assets/instagram/donaidesa/profile.jpg",
-      "followers_count": 6049,
+      "followers_count": 6051,
       "media_count": 123,
       "media": {
         "data": [
@@ -202,7 +202,7 @@
       "username": "meleycia",
       "name": "Melé y Cía",
       "profile_picture_url": "assets/instagram/meleycia/profile.jpg",
-      "followers_count": 5632,
+      "followers_count": 5677,
       "media_count": 125,
       "media": {
         "data": [
@@ -211,7 +211,7 @@
             "media_type": "CAROUSEL_ALBUM",
             "media_url": "assets/instagram/meleycia/18098676761557354.jpg",
             "permalink": "https://www.instagram.com/p/DeurZGlARKO/",
-            "like_count": 6,
+            "like_count": 9,
             "comments_count": 0,
             "timestamp": "2026-10-20T20:20:45+0000"
           },
@@ -267,7 +267,7 @@
       "username": "pallmetal",
       "name": "Pall-Metal",
       "profile_picture_url": "assets/instagram/pallmetal/profile.jpg",
-      "followers_count": 11493,
+      "followers_count": 11523,
       "media_count": 250,
       "media": {
         "data": [
@@ -276,7 +276,7 @@
             "media_type": "CAROUSEL_ALBUM",
             "media_url": "assets/instagram/pallmetal/17990385339075315.jpg",
             "permalink": "https://www.instagram.com/p/DeusE1Om1Zq/",
-            "like_count": 6,
+            "like_count": 7,
             "comments_count": 0,
             "timestamp": "2026-10-20T20:26:43+0000"
           },
