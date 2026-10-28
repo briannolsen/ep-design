@@ -1,16 +1,25 @@
 {
   "source": "instagram-graph-api/business_discovery",
   "sample": false,
-  "updated_at": "2026-10-27T15:16:36.226Z",
+  "updated_at": "2026-10-28T15:53:15.062Z",
   "accounts": [
     {
       "username": "grupoalbani_",
       "name": "Grupo Albani",
       "profile_picture_url": "assets/instagram/grupoalbani_/profile.jpg",
-      "followers_count": 531,
-      "media_count": 51,
+      "followers_count": 533,
+      "media_count": 52,
       "media": {
         "data": [
+          {
+            "id": "18438745912197812",
+            "media_type": "CAROUSEL_ALBUM",
+            "media_url": "assets/instagram/grupoalbani_/18438745912197812.jpg",
+            "permalink": "https://www.instagram.com/p/DfAz6j5mVAv/",
+            "like_count": 2,
+            "comments_count": 0,
+            "timestamp": "2026-10-27T21:21:33+0000"
+          },
           {
             "id": "18099768260431204",
             "media_type": "VIDEO",
@@ -55,15 +64,6 @@
             "like_count": 17,
             "comments_count": 0,
             "timestamp": "2026-10-01T21:00:05+0000"
-          },
-          {
-            "id": "17939129535368102",
-            "media_type": "CAROUSEL_ALBUM",
-            "media_url": "assets/instagram/grupoalbani_/17939129535368102.jpg",
-            "permalink": "https://www.instagram.com/p/Dd46LKpGVKN/",
-            "like_count": 4,
-            "comments_count": 0,
-            "timestamp": "2026-09-29T23:10:56+0000"
           }
         ]
       }
@@ -72,17 +72,26 @@
       "username": "big_globos",
       "name": "Big Globos",
       "profile_picture_url": "assets/instagram/big_globos/profile.jpg",
-      "followers_count": 15172,
-      "media_count": 193,
+      "followers_count": 15176,
+      "media_count": 194,
       "media": {
         "data": [
+          {
+            "id": "18148236355566868",
+            "media_type": "CAROUSEL_ALBUM",
+            "media_url": "assets/instagram/big_globos/18148236355566868.jpg",
+            "permalink": "https://www.instagram.com/p/DfAzlKsj_nO/",
+            "like_count": 4,
+            "comments_count": 0,
+            "timestamp": "2026-10-27T21:18:38+0000"
+          },
           {
             "id": "18231617236333774",
             "media_type": "VIDEO",
             "media_url": "assets/instagram/big_globos/18231617236333774.jpg",
             "permalink": "https://www.instagram.com/reel/Dez04Y5vyCV/",
             "like_count": 14,
-            "comments_count": 0,
+            "comments_count": 1,
             "timestamp": "2026-10-22T20:20:15+0000"
           },
           {
@@ -91,7 +100,7 @@
             "media_url": "assets/instagram/big_globos/17934405543144302.jpg",
             "permalink": "https://www.instagram.com/p/Deurh8ID7Ym/",
             "like_count": 6,
-            "comments_count": 1,
+            "comments_count": 2,
             "timestamp": "2026-10-20T20:21:57+0000"
           },
           {
@@ -100,7 +109,7 @@
             "media_url": "assets/instagram/big_globos/18116393785818920.jpg",
             "permalink": "https://www.instagram.com/reel/DekkSoVRjq7/",
             "like_count": 15,
-            "comments_count": 1,
+            "comments_count": 2,
             "timestamp": "2026-10-16T22:11:03+0000"
           },
           {
@@ -109,7 +118,7 @@
             "media_url": "assets/instagram/big_globos/18412486657086823.jpg",
             "permalink": "https://www.instagram.com/reel/DefSexCP37h/",
             "like_count": 24,
-            "comments_count": 1,
+            "comments_count": 2,
             "timestamp": "2026-10-14T20:55:28+0000"
           },
           {
@@ -118,17 +127,8 @@
             "media_url": "assets/instagram/big_globos/17993005746028032.jpg",
             "permalink": "https://www.instagram.com/reel/DeSfAY3xu4x/",
             "like_count": 182,
-            "comments_count": 3,
+            "comments_count": 5,
             "timestamp": "2026-10-09T21:34:33+0000"
-          },
-          {
-            "id": "18103110089290178",
-            "media_type": "VIDEO",
-            "media_url": "assets/instagram/big_globos/18103110089290178.jpg",
-            "permalink": "https://www.instagram.com/reel/DeP0WG-vfc6/",
-            "like_count": 29,
-            "comments_count": 0,
-            "timestamp": "2026-10-08T20:43:06+0000"
           }
         ]
       }
@@ -137,10 +137,19 @@
       "username": "donaidesa",
       "name": "Donaide",
       "profile_picture_url": "assets/instagram/donaidesa/profile.jpg",
-      "followers_count": 6069,
-      "media_count": 124,
+      "followers_count": 6067,
+      "media_count": 125,
       "media": {
         "data": [
+          {
+            "id": "18080239520460825",
+            "media_type": "CAROUSEL_ALBUM",
+            "media_url": "assets/instagram/donaidesa/18080239520460825.jpg",
+            "permalink": "https://www.instagram.com/p/DfAzxG_nLos/",
+            "like_count": 1,
+            "comments_count": 0,
+            "timestamp": "2026-10-27T21:20:16+0000"
+          },
           {
             "id": "18135029809780433",
             "media_type": "VIDEO",
@@ -185,15 +194,6 @@
             "like_count": 3,
             "comments_count": 0,
             "timestamp": "2026-10-08T20:41:36+0000"
-          },
-          {
-            "id": "18660325252066494",
-            "media_type": "CAROUSEL_ALBUM",
-            "media_url": "assets/instagram/donaidesa/18660325252066494.jpg",
-            "permalink": "https://www.instagram.com/p/DeKwzJZnKQF/",
-            "like_count": 3,
-            "comments_count": 0,
-            "timestamp": "2026-10-06T21:35:20+0000"
           }
         ]
       }
@@ -202,10 +202,19 @@
       "username": "meleycia",
       "name": "Melé y Cía",
       "profile_picture_url": "assets/instagram/meleycia/profile.jpg",
-      "followers_count": 5843,
-      "media_count": 126,
+      "followers_count": 5848,
+      "media_count": 127,
       "media": {
         "data": [
+          {
+            "id": "18101010518437109",
+            "media_type": "CAROUSEL_ALBUM",
+            "media_url": "assets/instagram/meleycia/18101010518437109.jpg",
+            "permalink": "https://www.instagram.com/p/DfA0JWTgUUq/",
+            "like_count": 6,
+            "comments_count": 0,
+            "timestamp": "2026-10-27T21:23:34+0000"
+          },
           {
             "id": "18119902919052230",
             "media_type": "VIDEO",
@@ -250,15 +259,6 @@
             "like_count": 8,
             "comments_count": 0,
             "timestamp": "2026-10-08T20:39:34+0000"
-          },
-          {
-            "id": "17984455560071155",
-            "media_type": "CAROUSEL_ALBUM",
-            "media_url": "assets/instagram/meleycia/17984455560071155.jpg",
-            "permalink": "https://www.instagram.com/p/DeKxDoJEX9u/",
-            "like_count": 7,
-            "comments_count": 0,
-            "timestamp": "2026-10-06T21:37:35+0000"
           }
         ]
       }
@@ -267,10 +267,19 @@
       "username": "pallmetal",
       "name": "Pall-Metal",
       "profile_picture_url": "assets/instagram/pallmetal/profile.jpg",
-      "followers_count": 11661,
-      "media_count": 251,
+      "followers_count": 11696,
+      "media_count": 252,
       "media": {
         "data": [
+          {
+            "id": "18114202778586021",
+            "media_type": "CAROUSEL_ALBUM",
+            "media_url": "assets/instagram/pallmetal/18114202778586021.jpg",
+            "permalink": "https://www.instagram.com/p/DfA0j0nm5LU/",
+            "like_count": 11,
+            "comments_count": 0,
+            "timestamp": "2026-10-27T21:27:11+0000"
+          },
           {
             "id": "18106122278631850",
             "media_type": "VIDEO",
@@ -294,7 +303,7 @@
             "media_type": "VIDEO",
             "media_url": "assets/instagram/pallmetal/18031732364890096.jpg",
             "permalink": "https://www.instagram.com/reel/DeklBOZvBRY/",
-            "like_count": 15,
+            "like_count": 16,
             "comments_count": 0,
             "timestamp": "2026-10-16T22:13:00+0000"
           },
@@ -315,15 +324,6 @@
             "like_count": 8,
             "comments_count": 0,
             "timestamp": "2026-10-08T20:45:54+0000"
-          },
-          {
-            "id": "17889197544684003",
-            "media_type": "VIDEO",
-            "media_url": "assets/instagram/pallmetal/17889197544684003.jpg",
-            "permalink": "https://www.instagram.com/reel/DeKxSumu6j7/",
-            "like_count": 19,
-            "comments_count": 0,
-            "timestamp": "2026-10-06T21:39:55+0000"
           }
         ]
       }
