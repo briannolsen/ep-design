@@ -1,7 +1,7 @@
 {
   "source": "instagram-graph-api/business_discovery",
   "sample": false,
-  "updated_at": "2026-10-31T15:14:29.839Z",
+  "updated_at": "2026-11-01T15:55:51.996Z",
   "accounts": [
     {
       "username": "grupoalbani_",
@@ -16,7 +16,7 @@
             "media_type": "VIDEO",
             "media_url": "assets/instagram/grupoalbani_/18110528813225599.jpg",
             "permalink": "https://www.instagram.com/reel/DfF8SGGxqEO/",
-            "like_count": 8,
+            "like_count": 9,
             "comments_count": 0,
             "timestamp": "2026-10-29T21:10:05+0000"
           },
@@ -72,7 +72,7 @@
       "username": "big_globos",
       "name": "Big Globos",
       "profile_picture_url": "assets/instagram/big_globos/profile.jpg",
-      "followers_count": 15185,
+      "followers_count": 15184,
       "media_count": 195,
       "media": {
         "data": [
@@ -202,7 +202,7 @@
       "username": "meleycia",
       "name": "Melé y Cía",
       "profile_picture_url": "assets/instagram/meleycia/profile.jpg",
-      "followers_count": 5857,
+      "followers_count": 5859,
       "media_count": 128,
       "media": {
         "data": [
@@ -267,7 +267,7 @@
       "username": "pallmetal",
       "name": "Pall-Metal",
       "profile_picture_url": "assets/instagram/pallmetal/profile.jpg",
-      "followers_count": 11769,
+      "followers_count": 11791,
       "media_count": 253,
       "media": {
         "data": [
@@ -276,7 +276,7 @@
             "media_type": "VIDEO",
             "media_url": "assets/instagram/pallmetal/18117084176005868.jpg",
             "permalink": "https://www.instagram.com/reel/DfF8REGhRaS/",
-            "like_count": 15,
+            "like_count": 17,
             "comments_count": 0,
             "timestamp": "2026-10-29T21:10:06+0000"
           },
@@ -294,7 +294,7 @@
             "media_type": "VIDEO",
             "media_url": "assets/instagram/pallmetal/18106122278631850.jpg",
             "permalink": "https://www.instagram.com/reel/Dez1LIeuYIE/",
-            "like_count": 24,
+            "like_count": 25,
             "comments_count": 2,
             "timestamp": "2026-10-22T20:22:44+0000"
           },
