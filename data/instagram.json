@@ -1,7 +1,7 @@
 {
   "source": "instagram-graph-api/business_discovery",
   "sample": false,
-  "updated_at": "2026-11-01T15:55:51.996Z",
+  "updated_at": "2026-11-02T19:24:12.244Z",
   "accounts": [
     {
       "username": "grupoalbani_",
@@ -72,7 +72,7 @@
       "username": "big_globos",
       "name": "Big Globos",
       "profile_picture_url": "assets/instagram/big_globos/profile.jpg",
-      "followers_count": 15184,
+      "followers_count": 15183,
       "media_count": 195,
       "media": {
         "data": [
@@ -81,7 +81,7 @@
             "media_type": "VIDEO",
             "media_url": "assets/instagram/big_globos/18122292164516574.jpg",
             "permalink": "https://www.instagram.com/reel/DfF8NUWO0QR/",
-            "like_count": 61,
+            "like_count": 62,
             "comments_count": 1,
             "timestamp": "2026-10-29T21:10:05+0000"
           },
@@ -137,7 +137,7 @@
       "username": "donaidesa",
       "name": "Donaide",
       "profile_picture_url": "assets/instagram/donaidesa/profile.jpg",
-      "followers_count": 6072,
+      "followers_count": 6071,
       "media_count": 126,
       "media": {
         "data": [
@@ -146,7 +146,7 @@
             "media_type": "VIDEO",
             "media_url": "assets/instagram/donaidesa/18022648607945163.jpg",
             "permalink": "https://www.instagram.com/reel/DfF8N9sJB6i/",
-            "like_count": 5,
+            "like_count": 6,
             "comments_count": 0,
             "timestamp": "2026-10-29T21:10:05+0000"
           },
@@ -202,7 +202,7 @@
       "username": "meleycia",
       "name": "Melé y Cía",
       "profile_picture_url": "assets/instagram/meleycia/profile.jpg",
-      "followers_count": 5859,
+      "followers_count": 5861,
       "media_count": 128,
       "media": {
         "data": [
@@ -267,7 +267,7 @@
       "username": "pallmetal",
       "name": "Pall-Metal",
       "profile_picture_url": "assets/instagram/pallmetal/profile.jpg",
-      "followers_count": 11791,
+      "followers_count": 11806,
       "media_count": 253,
       "media": {
         "data": [
