@@ -1,7 +1,7 @@
 {
   "source": "instagram-graph-api/business_discovery",
   "sample": false,
-  "updated_at": "2026-11-02T19:24:12.244Z",
+  "updated_at": "2026-11-03T16:56:59.380Z",
   "accounts": [
     {
       "username": "grupoalbani_",
@@ -72,7 +72,7 @@
       "username": "big_globos",
       "name": "Big Globos",
       "profile_picture_url": "assets/instagram/big_globos/profile.jpg",
-      "followers_count": 15183,
+      "followers_count": 15184,
       "media_count": 195,
       "media": {
         "data": [
@@ -137,7 +137,7 @@
       "username": "donaidesa",
       "name": "Donaide",
       "profile_picture_url": "assets/instagram/donaidesa/profile.jpg",
-      "followers_count": 6071,
+      "followers_count": 6070,
       "media_count": 126,
       "media": {
         "data": [
@@ -202,7 +202,7 @@
       "username": "meleycia",
       "name": "Melé y Cía",
       "profile_picture_url": "assets/instagram/meleycia/profile.jpg",
-      "followers_count": 5861,
+      "followers_count": 5863,
       "media_count": 128,
       "media": {
         "data": [
@@ -267,7 +267,7 @@
       "username": "pallmetal",
       "name": "Pall-Metal",
       "profile_picture_url": "assets/instagram/pallmetal/profile.jpg",
-      "followers_count": 11806,
+      "followers_count": 11809,
       "media_count": 253,
       "media": {
         "data": [
@@ -276,7 +276,7 @@
             "media_type": "VIDEO",
             "media_url": "assets/instagram/pallmetal/18117084176005868.jpg",
             "permalink": "https://www.instagram.com/reel/DfF8REGhRaS/",
-            "like_count": 17,
+            "like_count": 19,
             "comments_count": 0,
             "timestamp": "2026-10-29T21:10:06+0000"
           },
@@ -285,7 +285,7 @@
             "media_type": "CAROUSEL_ALBUM",
             "media_url": "assets/instagram/pallmetal/18114202778586021.jpg",
             "permalink": "https://www.instagram.com/p/DfA0j0nm5LU/",
-            "like_count": 18,
+            "like_count": 20,
             "comments_count": 2,
             "timestamp": "2026-10-27T21:27:11+0000"
           },
