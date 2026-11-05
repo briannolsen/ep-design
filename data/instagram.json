@@ -1,13 +1,13 @@
 {
   "source": "instagram-graph-api/business_discovery",
   "sample": false,
-  "updated_at": "2026-11-04T17:00:33.748Z",
+  "updated_at": "2026-11-05T17:17:24.076Z",
   "accounts": [
     {
       "username": "grupoalbani_",
       "name": "Grupo Albani",
       "profile_picture_url": "assets/instagram/grupoalbani_/profile.jpg",
-      "followers_count": 542,
+      "followers_count": 543,
       "media_count": 54,
       "media": {
         "data": [
@@ -16,7 +16,7 @@
             "media_type": "CAROUSEL_ALBUM",
             "media_url": "assets/instagram/grupoalbani_/17951732571318579.jpg",
             "permalink": "https://www.instagram.com/p/DfS0dWnmSWk/",
-            "like_count": 1,
+            "like_count": 2,
             "comments_count": 0,
             "timestamp": "2026-11-03T21:12:38+0000"
           },
@@ -72,7 +72,7 @@
       "username": "big_globos",
       "name": "Big Globos",
       "profile_picture_url": "assets/instagram/big_globos/profile.jpg",
-      "followers_count": 15212,
+      "followers_count": 15241,
       "media_count": 196,
       "media": {
         "data": [
@@ -81,7 +81,7 @@
             "media_type": "VIDEO",
             "media_url": "assets/instagram/big_globos/18030501854872189.jpg",
             "permalink": "https://www.instagram.com/reel/DfS1G9Jv4OW/",
-            "like_count": 11,
+            "like_count": 12,
             "comments_count": 1,
             "timestamp": "2026-11-03T21:18:37+0000"
           },
@@ -137,7 +137,7 @@
       "username": "donaidesa",
       "name": "Donaide",
       "profile_picture_url": "assets/instagram/donaidesa/profile.jpg",
-      "followers_count": 6073,
+      "followers_count": 6074,
       "media_count": 127,
       "media": {
         "data": [
@@ -202,7 +202,7 @@
       "username": "meleycia",
       "name": "Melé y Cía",
       "profile_picture_url": "assets/instagram/meleycia/profile.jpg",
-      "followers_count": 5865,
+      "followers_count": 5867,
       "media_count": 129,
       "media": {
         "data": [
@@ -211,7 +211,7 @@
             "media_type": "CAROUSEL_ALBUM",
             "media_url": "assets/instagram/meleycia/17980110924133185.jpg",
             "permalink": "https://www.instagram.com/p/DfS0NDAAR-i/",
-            "like_count": 2,
+            "like_count": 3,
             "comments_count": 0,
             "timestamp": "2026-11-03T21:10:24+0000"
           },
@@ -276,7 +276,7 @@
             "media_type": "CAROUSEL_ALBUM",
             "media_url": "assets/instagram/pallmetal/18361561243217151.jpg",
             "permalink": "https://www.instagram.com/p/DfS0tyJm38-/",
-            "like_count": 2,
+            "like_count": 3,
             "comments_count": 2,
             "timestamp": "2026-11-03T21:14:53+0000"
           },
