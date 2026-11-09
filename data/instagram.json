@@ -1,7 +1,7 @@
 {
   "source": "instagram-graph-api/business_discovery",
   "sample": false,
-  "updated_at": "2026-11-08T15:54:08.462Z",
+  "updated_at": "2026-11-09T19:42:09.609Z",
   "accounts": [
     {
       "username": "grupoalbani_",
@@ -72,7 +72,7 @@
       "username": "big_globos",
       "name": "Big Globos",
       "profile_picture_url": "assets/instagram/big_globos/profile.jpg",
-      "followers_count": 15374,
+      "followers_count": 15443,
       "media_count": 197,
       "media": {
         "data": [
@@ -202,7 +202,7 @@
       "username": "meleycia",
       "name": "Melé y Cía",
       "profile_picture_url": "assets/instagram/meleycia/profile.jpg",
-      "followers_count": 5897,
+      "followers_count": 5917,
       "media_count": 130,
       "media": {
         "data": [
@@ -229,7 +229,7 @@
             "media_type": "VIDEO",
             "media_url": "assets/instagram/meleycia/18125523991909220.jpg",
             "permalink": "https://www.instagram.com/reel/DfF8QcTNiMp/",
-            "like_count": 5,
+            "like_count": 6,
             "comments_count": 0,
             "timestamp": "2026-10-29T21:10:04+0000"
           },
@@ -267,7 +267,7 @@
       "username": "pallmetal",
       "name": "Pall-Metal",
       "profile_picture_url": "assets/instagram/pallmetal/profile.jpg",
-      "followers_count": 11832,
+      "followers_count": 11851,
       "media_count": 255,
       "media": {
         "data": [
@@ -276,7 +276,7 @@
             "media_type": "VIDEO",
             "media_url": "assets/instagram/pallmetal/17915852235492936.jpg",
             "permalink": "https://www.instagram.com/reel/DfX9o7ZOTBL/",
-            "like_count": 30,
+            "like_count": 32,
             "comments_count": 7,
             "timestamp": "2026-11-05T21:09:36+0000"
           },
